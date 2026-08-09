@@ -1,0 +1,324 @@
+/* =============================================================
+   MÅLGRUPPE — taxonomy-oriented layout: two separated tracks,
+   a pill taxonomy and an age/§ matrix.
+   All class names are namespaced `.maalgruppe__*`.
+   ============================================================= */
+
+.maalgruppe__prose {
+  margin-top: var(--s-5);
+  max-width: 62ch;
+}
+
+/* ---------- Intro ---------- */
+
+.maalgruppe__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: center;
+}
+
+.maalgruppe__intro-lead {
+  margin-top: var(--s-5);
+  max-width: 54ch;
+}
+
+.maalgruppe__intro-figure {
+  margin: 0;
+  border-radius: var(--r-arch);
+  overflow: hidden;
+  aspect-ratio: 4 / 4.4;
+  box-shadow: var(--shadow-md);
+  background: var(--c-bg-tint);
+}
+
+.maalgruppe__intro-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- To spor ---------- */
+
+.maalgruppe__tracks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+
+.maalgruppe__track {
+  min-width: 0;
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  background: var(--c-bg-alt);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--brand-soft);
+}
+
+.maalgruppe__track:last-child {
+  border-top-color: var(--c-accent);
+}
+
+.maalgruppe__track-kicker {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  margin-bottom: var(--s-3);
+}
+
+.maalgruppe__track-title {
+  font-size: var(--t-xl);
+}
+
+.maalgruppe__meta {
+  margin-top: var(--s-5);
+  display: grid;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  background: var(--c-bg-tint);
+}
+
+.maalgruppe__meta li {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: var(--s-3);
+  align-items: baseline;
+}
+
+.maalgruppe__meta-key {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--brand-mid);
+}
+
+.maalgruppe__meta-val {
+  font-size: var(--t-sm);
+  line-height: var(--lh-normal);
+  color: var(--brand-ink);
+  font-weight: 600;
+}
+
+.maalgruppe__track-prose {
+  margin-top: var(--s-5);
+}
+
+.maalgruppe__track-prose p {
+  font-size: var(--t-sm);
+}
+
+.maalgruppe__tags-title {
+  margin-top: var(--s-6);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  font-family: var(--font-body);
+}
+
+.maalgruppe__tags {
+  margin-top: var(--s-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.maalgruppe__tag {
+  font-size: var(--t-xs);
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--brand-deep);
+  background: var(--c-bg-tint);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  padding: 0.35rem 0.75rem;
+}
+
+.maalgruppe__track:last-child .maalgruppe__tag {
+  background: var(--brand-accent-soft);
+  border-color: transparent;
+  color: var(--brand-ink);
+}
+
+/* ---------- Matrix ---------- */
+
+.maalgruppe__matrix-head {
+  max-width: 58ch;
+}
+
+.maalgruppe__matrix-intro {
+  margin-top: var(--s-5);
+}
+
+.maalgruppe__table-wrap {
+  margin-top: clamp(2rem, 1.25rem + 2vw, 3rem);
+  overflow-x: auto;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+}
+
+.maalgruppe__table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.maalgruppe__table caption {
+  caption-side: bottom;
+  padding: var(--s-4) var(--s-5);
+  font-size: var(--t-xs);
+  color: var(--c-text-muted);
+  text-align: left;
+  border-top: 1px solid var(--c-line);
+}
+
+.maalgruppe__table th,
+.maalgruppe__table td {
+  padding: var(--s-4) var(--s-5);
+  vertical-align: top;
+  border-bottom: 1px solid var(--c-line);
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+}
+
+.maalgruppe__table thead th {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-deep);
+  background: var(--c-bg-tint);
+  white-space: nowrap;
+}
+
+.maalgruppe__table tbody th {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--t-base);
+  color: var(--brand-ink);
+}
+
+.maalgruppe__table td {
+  color: var(--c-text-muted);
+}
+
+.maalgruppe__table tbody tr:last-child th,
+.maalgruppe__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ---------- Visitation ---------- */
+
+.maalgruppe__visitation-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: start;
+}
+
+.maalgruppe__price {
+  padding: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+  border-radius: var(--r-lg);
+  background: var(--c-bg-tint);
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-6));
+}
+
+.maalgruppe__price-title {
+  font-size: var(--t-lg);
+}
+
+.maalgruppe__price-body {
+  margin-top: var(--s-4);
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--c-text-muted);
+}
+
+.maalgruppe__factors {
+  margin-top: var(--s-5);
+  display: grid;
+  gap: var(--s-2);
+}
+
+.maalgruppe__factor {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--brand-ink);
+  padding: var(--s-3) var(--s-4);
+  background: var(--c-bg-alt);
+  border-radius: var(--r-sm);
+}
+
+.maalgruppe__factor::before {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.45em;
+  border-radius: var(--r-pill);
+  background: var(--c-accent);
+}
+
+/* ---------- CTA ---------- */
+
+.maalgruppe__cta-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) auto;
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+  align-items: end;
+}
+
+.maalgruppe__cta-lead {
+  margin-top: var(--s-5);
+  max-width: 52ch;
+}
+
+.maalgruppe__cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1000px) {
+  .maalgruppe__intro,
+  .maalgruppe__visitation-grid,
+  .maalgruppe__cta-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .maalgruppe__cta-inner {
+    align-items: start;
+  }
+
+  .maalgruppe__intro-figure {
+    aspect-ratio: 16 / 10;
+  }
+
+  .maalgruppe__price {
+    position: static;
+  }
+}
+
+@media (max-width: 420px) {
+  .maalgruppe__meta li {
+    grid-template-columns: 1fr;
+    gap: var(--s-1);
+  }
+
+  .maalgruppe__cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

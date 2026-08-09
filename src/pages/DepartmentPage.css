@@ -1,0 +1,254 @@
+/* =============================================================
+   DEPARTMENT PAGE — /afdelinger/:slug
+   ============================================================= */
+
+/* ---------- not found ---------- */
+
+.dept-missing {
+  padding-top: calc(var(--header-h) + clamp(3rem, 2rem + 6vw, 7rem));
+  padding-bottom: var(--section-y);
+}
+
+.dept-missing__lead {
+  margin-top: var(--s-5);
+}
+
+.dept-missing__action {
+  margin-top: var(--s-7);
+}
+
+/* ---------- fakta panel ---------- */
+
+.dept-facts {
+  padding-block: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+}
+
+.dept-facts__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.75rem, 1rem + 3vw, 3.5rem);
+  padding: clamp(1.75rem, 1rem + 2.5vw, 3rem);
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.dept-facts__head h2 {
+  font-size: var(--t-xl);
+}
+
+.dept-facts__contact {
+  margin-top: var(--s-5);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--c-line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+}
+
+.dept-facts__phone {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+  text-transform: none;
+  color: var(--brand-ink);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.dept-facts__phone:hover {
+  color: var(--c-accent);
+}
+
+.dept-facts__list {
+  margin: 0;
+  display: grid;
+  gap: var(--s-4);
+}
+
+.dept-facts__row {
+  display: grid;
+  grid-template-columns: 10.5rem minmax(0, 1fr);
+  gap: var(--s-4);
+  padding-bottom: var(--s-4);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.dept-facts__row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.dept-facts__row dt {
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  padding-top: 0.15em;
+}
+
+.dept-facts__row dd {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--c-text);
+}
+
+.dept-facts__row--approval dd {
+  color: var(--brand-ink);
+  font-weight: 600;
+}
+
+/* ---------- huset og omgivelserne ---------- */
+
+.dept-setting__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: center;
+}
+
+.dept-setting__figure {
+  margin: 0;
+  border-radius: var(--r-arch);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4 / 4.4;
+}
+
+.dept-setting__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dept-setting__prose {
+  margin-top: var(--s-5);
+}
+
+/* ---------- målgruppe og tilgang ---------- */
+
+.dept-approach__prose {
+  margin-top: var(--s-6);
+}
+
+.dept-approach__prose p {
+  font-size: var(--t-md);
+}
+
+/* ---------- hverdagen ---------- */
+
+.dept-everyday__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: center;
+}
+
+.dept-everyday__prose {
+  margin-top: var(--s-5);
+}
+
+.dept-everyday__figure {
+  margin: 0;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4 / 3.4;
+}
+
+.dept-everyday__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dept-everyday__highlights {
+  margin-top: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s-5);
+}
+
+.dept-everyday__card {
+  height: 100%;
+  padding: var(--s-6);
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out);
+}
+
+.dept-everyday__card:hover {
+  border-color: var(--c-line-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.dept-everyday__highlights > li {
+  display: flex;
+}
+
+.dept-everyday__highlights > li > .reveal {
+  width: 100%;
+}
+
+.dept-everyday__card-title {
+  font-size: var(--t-base);
+  font-weight: 600;
+}
+
+.dept-everyday__card-text {
+  margin-top: var(--s-3);
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--c-text-muted);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1040px) {
+  .dept-everyday__highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .dept-facts__panel,
+  .dept-setting__grid,
+  .dept-everyday__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dept-setting__grid,
+  .dept-everyday__grid {
+    gap: var(--s-7);
+  }
+
+  .dept-setting__figure {
+    aspect-ratio: 16 / 11;
+  }
+
+  .dept-everyday__media {
+    order: -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .dept-facts__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-2);
+  }
+
+  .dept-everyday__highlights {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

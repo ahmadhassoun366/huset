@@ -1,0 +1,256 @@
+/* =============================================================
+   VÆRDIER — large numbered value blocks, alternating sides
+   ============================================================= */
+
+/* ---------- Intro + index ---------- */
+
+.vaerdier__intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: var(--s-7) clamp(2rem, 1rem + 5vw, 5.5rem);
+  align-items: end;
+}
+
+.vaerdier__intro-grid h2 {
+  max-width: 15ch;
+}
+
+.vaerdier__intro-lead {
+  margin-top: var(--s-5);
+  max-width: 48ch;
+}
+
+.vaerdier__index ol {
+  border-top: 1px solid var(--c-line);
+}
+
+.vaerdier__index li {
+  border-bottom: 1px solid var(--c-line);
+}
+
+.vaerdier__index-link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-4);
+  padding: var(--s-4) var(--s-2);
+  transition: color var(--dur-fast) var(--ease-out),
+    padding-left var(--dur-fast) var(--ease-out);
+}
+
+.vaerdier__index-link:hover {
+  color: var(--c-accent);
+  padding-left: var(--s-4);
+}
+
+.vaerdier__index-num {
+  font-family: var(--font-display);
+  font-size: var(--t-xs);
+  letter-spacing: var(--tracking-caps);
+  color: var(--c-text-muted);
+}
+
+.vaerdier__index-name {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* ---------- Value blocks ---------- */
+
+.vaerdier__item {
+  padding-block: clamp(3rem, 1.5rem + 5vw, 6rem);
+  border-top: 1px solid var(--c-line);
+}
+
+.vaerdier__item:nth-child(even) {
+  background: var(--c-bg-alt);
+}
+
+.vaerdier__item-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: var(--s-6) clamp(2rem, 1rem + 5vw, 5.5rem);
+  align-items: start;
+}
+
+/* flipped rows mirror the column widths so the prose keeps the wide track */
+.vaerdier__item--flip .vaerdier__item-grid {
+  grid-template-columns: minmax(0, 1.28fr) minmax(0, 0.72fr);
+}
+
+.vaerdier__item--flip .vaerdier__marker {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+}
+
+.vaerdier__item--flip .vaerdier__content {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.vaerdier__marker {
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-6));
+}
+
+.vaerdier__num {
+  font-family: var(--font-display);
+  font-size: var(--t-4xl);
+  line-height: 0.86;
+  letter-spacing: var(--tracking-tight);
+  color: var(--brand-soft);
+  opacity: 0.55;
+}
+
+.vaerdier__name {
+  margin-top: var(--s-3);
+  font-size: var(--t-2xl);
+}
+
+.vaerdier__summary {
+  margin-top: var(--s-4);
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--c-text-muted);
+  max-width: 30ch;
+}
+
+.vaerdier__item--flip .vaerdier__summary {
+  margin-left: auto;
+}
+
+.vaerdier__body {
+  max-width: 64ch;
+}
+
+.vaerdier__body p {
+  font-size: var(--t-md);
+}
+
+/* practice list */
+
+.vaerdier__practice {
+  margin-top: var(--s-6);
+  padding: var(--s-5) var(--s-6);
+  background: var(--c-bg-tint);
+  border-radius: var(--r-lg);
+  max-width: 64ch;
+}
+
+.vaerdier__item:nth-child(even) .vaerdier__practice {
+  background: var(--c-bg);
+}
+
+.vaerdier__practice-title {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+}
+
+.vaerdier__practice ul {
+  margin-top: var(--s-4);
+  display: grid;
+  gap: var(--s-3);
+}
+
+.vaerdier__practice li {
+  position: relative;
+  padding-left: var(--s-6);
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+}
+
+.vaerdier__practice li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 14px;
+  height: 1px;
+  background: var(--c-accent);
+}
+
+/* ---------- Tagline band ---------- */
+
+.vaerdier__tagline {
+  background: var(--c-bg-tint);
+}
+
+.vaerdier__tagline-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 1rem + 5vw, 5rem);
+  align-items: center;
+}
+
+.vaerdier__figure {
+  margin: 0;
+  border-radius: var(--r-arch);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4 / 4.6;
+}
+
+.vaerdier__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vaerdier__tagline-quote {
+  font-size: var(--t-2xl);
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.vaerdier__tagline-text .lead {
+  margin-top: var(--s-5);
+  max-width: 48ch;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 900px) {
+  .vaerdier__intro-grid,
+  .vaerdier__tagline-grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .vaerdier__item-grid,
+  .vaerdier__item--flip .vaerdier__item-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vaerdier__marker,
+  .vaerdier__item--flip .vaerdier__marker,
+  .vaerdier__content,
+  .vaerdier__item--flip .vaerdier__content {
+    grid-column: 1;
+    grid-row: auto;
+    text-align: left;
+    position: static;
+  }
+
+  .vaerdier__item--flip .vaerdier__summary {
+    margin-left: 0;
+  }
+
+  .vaerdier__figure {
+    aspect-ratio: 16 / 12;
+  }
+
+  .vaerdier__num {
+    font-size: var(--t-3xl);
+  }
+}
+
+@media (max-width: 420px) {
+  .vaerdier__practice {
+    padding: var(--s-5) var(--s-4);
+  }
+}

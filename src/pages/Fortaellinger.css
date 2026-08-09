@@ -1,0 +1,284 @@
+/* =============================================================
+   FORTÆLLINGER — editorial testimonial mosaic
+   Namespaced .fort__* so nothing leaks to other pages.
+   ============================================================= */
+
+/* ---------- shared arch photography ---------- */
+
+.fort__arch {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--r-arch);
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4 / 5;
+}
+
+.fort__arch--sm {
+  aspect-ratio: 4 / 3.4;
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- featured pull-quote ---------- */
+
+.fort__feature {
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 5.5rem);
+}
+
+.fort__feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+}
+
+.fort__hero-figure {
+  margin: 0;
+  position: relative;
+  padding-left: clamp(0px, 1vw, var(--s-5));
+}
+
+.fort__hero-mark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--t-4xl);
+  line-height: 0.6;
+  color: var(--brand-soft);
+  opacity: 0.55;
+  margin-bottom: var(--s-3);
+  user-select: none;
+}
+
+.fort__hero-quote {
+  margin: 0;
+}
+
+.fort__hero-quote p {
+  font-family: var(--font-display);
+  font-size: var(--t-2xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--brand-ink);
+  text-wrap: balance;
+}
+
+/* ---------- attribution ---------- */
+
+.fort__by {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2) var(--s-3);
+  margin-top: var(--s-5);
+}
+
+.fort__by--hero {
+  margin-top: var(--s-6);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--c-line);
+}
+
+.fort__author {
+  font-style: normal;
+  font-weight: 700;
+  font-size: var(--t-sm);
+  letter-spacing: var(--tracking-wide);
+  color: var(--brand-deep);
+}
+
+.fort__role {
+  font-size: var(--t-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--c-text-muted);
+}
+
+.fort__role::before {
+  content: '—';
+  margin-right: var(--s-2);
+  opacity: 0.5;
+}
+
+/* ---------- the mosaic ---------- */
+
+.fort__mosaic {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(1.25rem, 0.5rem + 1.6vw, 2.25rem);
+  align-items: start;
+  margin-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+}
+
+/* deliberate, non-uniform spans + vertical stagger */
+.fort__item--lg {
+  grid-column: span 4;
+}
+.fort__item--md {
+  grid-column: span 3;
+}
+.fort__item--sm {
+  grid-column: span 2;
+}
+
+.fort__mosaic > .fort__item:nth-child(2),
+.fort__mosaic > .fort__item:nth-child(5) {
+  margin-top: clamp(1rem, 0.5rem + 2vw, 3rem);
+}
+
+.fort__mosaic > .fort__item:nth-child(3) {
+  margin-top: clamp(0.5rem, 0.25rem + 1vw, 1.5rem);
+}
+
+/* ---------- quote cards ---------- */
+
+.fort__card {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  padding: clamp(1.5rem, 1rem + 1.4vw, 2.5rem);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-mid) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out);
+}
+
+.fort__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.fort__mark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--t-2xl);
+  line-height: 0.5;
+  color: var(--c-accent);
+  opacity: 0.5;
+  margin-bottom: var(--s-4);
+  user-select: none;
+}
+
+.fort__quote {
+  margin: 0;
+  flex: 1;
+}
+
+.fort__quote p {
+  font-size: var(--t-base);
+  line-height: var(--lh-relaxed);
+  color: var(--c-text);
+}
+
+/* emphasis variants — the size of the type follows the size of the card */
+.fort__card--lg {
+  background: var(--c-bg-alt);
+}
+
+.fort__card--lg .fort__quote p {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--tracking-tight);
+  color: var(--brand-ink);
+}
+
+.fort__card--md .fort__quote p {
+  font-size: var(--t-md);
+}
+
+.fort__card--sm {
+  background: transparent;
+  border-color: var(--c-line-strong);
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.fort__card--sm:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.fort__card--sm .fort__quote p {
+  font-size: var(--t-sm);
+}
+
+/* ---------- closing ---------- */
+
+.fort__closing-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: center;
+}
+
+.fort__closing-text .prose {
+  margin-top: var(--s-5);
+}
+
+.fort__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+  margin-top: var(--s-7);
+}
+
+/* =============================================================
+   RESPONSIVE
+   ============================================================= */
+
+@media (max-width: 1000px) {
+  .fort__item--lg {
+    grid-column: span 6;
+  }
+  .fort__item--md,
+  .fort__item--sm {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 860px) {
+  .fort__feature-grid,
+  .fort__closing-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-7);
+  }
+
+  .fort__feature-media,
+  .fort__closing-media {
+    order: -1;
+    width: 100%;
+    max-width: 26rem;
+    margin-inline: auto;
+  }
+
+  .fort__arch {
+    aspect-ratio: 4 / 3.6;
+  }
+
+  .fort__hero-quote p {
+    font-size: var(--t-xl);
+  }
+}
+
+@media (max-width: 640px) {
+  .fort__mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  .fort__item--lg,
+  .fort__item--md,
+  .fort__item--sm {
+    grid-column: 1 / -1;
+  }
+
+  .fort__mosaic > .fort__item:nth-child(2),
+  .fort__mosaic > .fort__item:nth-child(3),
+  .fort__mosaic > .fort__item:nth-child(5) {
+    margin-top: 0;
+  }
+
+  .fort__card--sm .fort__quote p {
+    font-size: var(--t-base);
+  }
+}

@@ -1,0 +1,275 @@
+/* =============================================================
+   HVEM ER VI — narrative / editorial layout
+   ============================================================= */
+
+/* ---------- Om os ---------- */
+
+.hvem__intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: var(--s-7) clamp(2rem, 1rem + 5vw, 6rem);
+  align-items: start;
+}
+
+.hvem__aside {
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-6));
+}
+
+.hvem__aside-title {
+  font-size: var(--t-xl);
+  max-width: 16ch;
+}
+
+.hvem__opening {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--tracking-tight);
+  color: var(--brand-ink);
+  max-width: 34ch;
+}
+
+.hvem__opening strong {
+  font-weight: 600;
+  color: var(--c-accent);
+}
+
+.hvem__prose {
+  max-width: 62ch;
+}
+
+.hvem__intro-body > .hvem__prose {
+  margin-top: var(--s-6);
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--c-line);
+}
+
+/* ---------- Baggrund: offset pair ---------- */
+
+.hvem__offset {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(2rem, 1rem + 5vw, 5.5rem);
+  align-items: center;
+}
+
+.hvem__figure {
+  margin: 0;
+  border-radius: var(--r-arch);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4 / 4.4;
+}
+
+.hvem__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hvem__offset-text h2 {
+  max-width: 18ch;
+}
+
+.hvem__offset-text .hvem__prose {
+  margin-top: var(--s-5);
+}
+
+/* ---------- Sådan arbejder vi ---------- */
+
+.hvem__work-head h2 {
+  max-width: 20ch;
+}
+
+.hvem__principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: var(--s-6) clamp(1.5rem, 1rem + 2vw, 3rem);
+  margin-top: var(--s-8);
+}
+
+/* stretch the <li> → <Reveal> → <article> chain so cards share a height */
+.hvem__principles > li,
+.hvem__path-list > li {
+  display: flex;
+}
+
+.hvem__principles > li > .reveal,
+.hvem__path-list > li > .reveal {
+  display: flex;
+  width: 100%;
+}
+
+.hvem__principle {
+  border-top: 1px solid var(--c-line-invert);
+  padding-top: var(--s-5);
+  width: 100%;
+}
+
+.hvem__principle-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--t-sm);
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-soft);
+  margin-bottom: var(--s-3);
+}
+
+.hvem__principle h3 {
+  font-size: var(--t-lg);
+  color: var(--c-text-invert);
+}
+
+.hvem__principle p {
+  margin-top: var(--s-3);
+  color: var(--c-text-invert-muted);
+  line-height: var(--lh-relaxed);
+  font-size: var(--t-sm);
+}
+
+.hvem__facts {
+  margin-top: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+}
+
+.hvem__facts dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: var(--s-5) var(--s-6);
+  margin: 0;
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--c-line-invert);
+}
+
+.hvem__fact {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--s-2);
+}
+
+.hvem__fact dd {
+  margin: 0;
+}
+
+.hvem__fact-value {
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--brand-accent);
+  overflow-wrap: anywhere;
+}
+
+.hvem__fact-label {
+  font-size: var(--t-sm);
+  color: var(--c-text-invert-muted);
+  max-width: 24ch;
+}
+
+/* ---------- Læs videre ---------- */
+
+.hvem__path-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: clamp(1.75rem, 1rem + 2.5vw, 3rem);
+  margin-top: var(--s-8);
+}
+
+.hvem__path {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hvem__path-media {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  background: var(--c-bg-tint);
+  margin-bottom: var(--s-5);
+}
+
+.hvem__path-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.hvem__path:hover .hvem__path-media img {
+  transform: scale(1.04);
+}
+
+.hvem__path-eyebrow {
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  margin-bottom: var(--s-2);
+}
+
+.hvem__path h3 {
+  font-size: var(--t-lg);
+}
+
+/* full-card click target without nesting the whole card in a link */
+.hvem__path-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-lg);
+}
+
+.hvem__path-link:hover {
+  color: var(--c-accent);
+}
+
+.hvem__path-body {
+  margin-top: var(--s-3);
+  color: var(--c-text-muted);
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  flex: 1;
+}
+
+.hvem__path-cue {
+  display: inline-block;
+  margin-top: var(--s-4);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--c-action);
+}
+
+.hvem__path-cue::after {
+  content: ' →';
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 900px) {
+  .hvem__intro-grid,
+  .hvem__offset {
+    grid-template-columns: 1fr;
+  }
+
+  .hvem__aside {
+    position: static;
+  }
+
+  .hvem__offset-figure {
+    order: 2;
+  }
+
+  .hvem__figure {
+    aspect-ratio: 16 / 12;
+  }
+
+  .hvem__intro-body > .hvem__prose {
+    margin-top: var(--s-5);
+    padding-top: var(--s-5);
+  }
+}

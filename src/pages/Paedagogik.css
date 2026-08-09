@@ -1,0 +1,366 @@
+/* =============================================================
+   PÆDAGOGIK — method-oriented layout: indexed methods, offset
+   text/image pairs, a pull quote and a real accordion.
+   All class names are namespaced `.paed__*`.
+   ============================================================= */
+
+.paed__prose {
+  margin-top: var(--s-5);
+  max-width: 62ch;
+}
+
+/* ---------- Metodeindeks ---------- */
+
+.paed__index-section {
+  padding-block: clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+
+.paed__index-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--s-4);
+  border-top: 1px solid var(--c-line);
+  padding-top: var(--s-5);
+}
+
+.paed__index-link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-md);
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-line);
+  transition: border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.paed__index-link:hover {
+  border-color: var(--brand-soft);
+  background: var(--c-bg-tint);
+  transform: translateY(-2px);
+}
+
+.paed__index-n {
+  font-family: var(--font-display);
+  font-size: var(--t-sm);
+  color: var(--c-accent);
+  letter-spacing: var(--tracking-wide);
+  flex: none;
+}
+
+.paed__index-label {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--brand-ink);
+  line-height: var(--lh-snug);
+}
+
+/* ---------- Offset text / image pairs ---------- */
+
+.paed__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: center;
+}
+
+.paed__split--reverse .paed__split-media {
+  order: -1;
+}
+
+.paed__figure {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 4.6;
+  background: var(--c-bg-tint);
+  box-shadow: var(--shadow-md);
+}
+
+.paed__figure--arch {
+  border-radius: var(--r-arch);
+}
+
+.paed__figure--soft {
+  border-radius: var(--r-xl);
+  aspect-ratio: 4 / 3.4;
+}
+
+.paed__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Pull quote ---------- */
+
+.paed__quote-section {
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  background: var(--c-bg);
+}
+
+.paed__quote {
+  margin: 0;
+  position: relative;
+  padding: clamp(2rem, 1rem + 3vw, 3.5rem) clamp(1.5rem, 1rem + 2vw, 3rem);
+  border-radius: var(--r-xl);
+  background: var(--c-bg-tint);
+  text-align: center;
+}
+
+.paed__quote::before {
+  content: '“';
+  display: block;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 0.6;
+  color: var(--brand-soft);
+  margin-bottom: var(--s-4);
+}
+
+.paed__quote blockquote {
+  margin: 0;
+}
+
+.paed__quote blockquote p {
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--brand-ink);
+  text-wrap: balance;
+}
+
+/* ---------- Udvikling gennem mentaliserende samspil ---------- */
+
+.paed__growth-wrap {
+  margin-top: clamp(3rem, 2rem + 3vw, 5rem);
+}
+
+.paed__growth-title {
+  font-size: var(--t-xl);
+  max-width: 24ch;
+}
+
+.paed__growth-intro {
+  margin-top: var(--s-4);
+  max-width: 62ch;
+}
+
+.paed__growth {
+  margin-top: var(--s-7);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: var(--s-5);
+}
+
+.paed__growth-item {
+  min-width: 0;
+  padding: var(--s-5);
+  background: var(--c-bg-alt);
+  border-radius: var(--r-md);
+  border-left: 3px solid var(--brand-soft);
+}
+
+.paed__growth-term {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--t-md);
+  color: var(--brand-ink);
+  letter-spacing: var(--tracking-tight);
+}
+
+.paed__growth-body {
+  display: block;
+  margin-top: var(--s-2);
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--c-text-muted);
+}
+
+.paed__growth-outro {
+  margin-top: var(--s-7);
+}
+
+/* ---------- Accordion (native details/summary) ---------- */
+
+.paed__accordion-wrap {
+  margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+}
+
+.paed__accordion-title {
+  font-size: var(--t-lg);
+  margin-bottom: var(--s-5);
+}
+
+.paed__accordion {
+  display: grid;
+  gap: var(--s-3);
+  max-width: 860px;
+}
+
+.paed__panel {
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  background: var(--c-bg-alt);
+  overflow: hidden;
+}
+
+.paed__panel[open] {
+  border-color: var(--brand-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.paed__panel-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-5);
+  cursor: pointer;
+  list-style: none;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.paed__panel-summary::-webkit-details-marker {
+  display: none;
+}
+
+.paed__panel-summary:hover {
+  background: var(--c-bg-tint);
+}
+
+.paed__panel-summary:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: -3px;
+}
+
+.paed__panel-label {
+  font-family: var(--font-display);
+  font-size: var(--t-md);
+  color: var(--brand-ink);
+  letter-spacing: var(--tracking-tight);
+  min-width: 0;
+}
+
+.paed__panel-icon {
+  position: relative;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--c-line-strong);
+}
+
+.paed__panel-icon::before,
+.paed__panel-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 1.5px;
+  background: var(--brand-deep);
+  transform: translate(-50%, -50%);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.paed__panel-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.paed__panel[open] .paed__panel-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.paed__panel-body {
+  padding: 0 var(--s-5) var(--s-5);
+  max-width: 70ch;
+}
+
+.paed__panel-body p {
+  font-size: var(--t-sm);
+}
+
+/* ---------- 04 Relationspædagogisk tilgang ---------- */
+
+.paed__relation h2 {
+  max-width: 20ch;
+}
+
+.paed__relation-grid {
+  margin-top: clamp(2rem, 1.25rem + 2vw, 3.25rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+  align-items: start;
+}
+
+.paed__relation-sub {
+  font-size: var(--t-lg);
+  max-width: 24ch;
+}
+
+.paed__relation-second {
+  margin-top: 0;
+  padding-top: var(--s-4);
+  border-top: 2px solid var(--brand-soft);
+}
+
+/* ---------- CTA ---------- */
+
+.paed__cta-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) auto;
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+  align-items: end;
+}
+
+.paed__cta-lead {
+  margin-top: var(--s-5);
+  max-width: 48ch;
+}
+
+.paed__cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 960px) {
+  .paed__split {
+    grid-template-columns: 1fr;
+  }
+
+  .paed__split--reverse .paed__split-media {
+    order: 0;
+  }
+
+  .paed__figure,
+  .paed__figure--soft {
+    aspect-ratio: 16 / 11;
+  }
+
+  .paed__cta-inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+@media (max-width: 420px) {
+  .paed__panel-summary {
+    padding: var(--s-4);
+  }
+
+  .paed__panel-body {
+    padding: 0 var(--s-4) var(--s-4);
+  }
+
+  .paed__cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

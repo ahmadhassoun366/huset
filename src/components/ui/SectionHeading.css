@@ -1,0 +1,17 @@
+.section-heading {
+  max-width: 60ch;
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+  max-width: 46rem;
+}
+
+.section-heading--center .eyebrow::before {
+  display: none;
+}
+
+.section-heading__intro {
+  margin-top: var(--s-4);
+}

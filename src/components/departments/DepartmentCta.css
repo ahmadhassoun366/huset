@@ -1,0 +1,76 @@
+.dept-cta__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: center;
+}
+
+.dept-cta__lead {
+  margin-top: var(--s-5);
+  max-width: 52ch;
+}
+
+.dept-cta__actions {
+  margin-top: var(--s-7);
+}
+
+/* --- døgntelefon card --- */
+
+.dept-cta__card {
+  padding: var(--s-7);
+  border: 1px solid var(--c-line-invert);
+  border-radius: var(--r-xl);
+  background: color-mix(in srgb, var(--c-text-invert) 5%, transparent);
+}
+
+.dept-cta__card-label {
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--brand-soft);
+}
+
+.dept-cta__phone {
+  display: inline-block;
+  margin-top: var(--s-4);
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--c-text-invert);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.dept-cta__phone:hover {
+  color: var(--brand-accent);
+}
+
+.dept-cta__card-note {
+  margin-top: var(--s-4);
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--c-text-invert-muted);
+}
+
+.dept-cta__inline-link {
+  color: var(--c-text-invert);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.dept-cta__inline-link:hover {
+  color: var(--brand-accent);
+}
+
+@media (max-width: 860px) {
+  .dept-cta__inner {
+    grid-template-columns: 1fr;
+    gap: var(--s-7);
+  }
+
+  .dept-cta__card {
+    padding: var(--s-6);
+  }
+}

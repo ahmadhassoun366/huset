@@ -1,0 +1,92 @@
+/* =============================================================
+   CTA BAND — closing call to action for the "Hvem er vi" pages
+   ============================================================= */
+
+.cta-band {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* higher specificity than .section--dark so the ink tone wins */
+.section.cta-band--dark {
+  background: var(--c-bg-ink);
+}
+
+.cta-band__glow {
+  position: absolute;
+  z-index: -1;
+  inset-inline-end: -18%;
+  inset-block-start: -55%;
+  width: min(720px, 90%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cta-band--dark .cta-band__glow {
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--brand-mid) 55%, transparent) 0%,
+    transparent 68%
+  );
+}
+
+.cta-band--tint .cta-band__glow {
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--brand-accent-soft) 80%, transparent) 0%,
+    transparent 70%
+  );
+}
+
+.cta-band__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: end;
+  gap: var(--s-7) clamp(2rem, 1rem + 4vw, 5rem);
+}
+
+.cta-band__text h2 {
+  font-size: var(--t-2xl);
+  max-width: 18ch;
+}
+
+.cta-band__lead {
+  margin-top: var(--s-5);
+  max-width: 46ch;
+}
+
+.cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-4);
+  justify-content: flex-end;
+}
+
+@media (max-width: 860px) {
+  .cta-band__inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .cta-band__actions {
+    justify-content: flex-start;
+  }
+
+  .cta-band__text h2 {
+    max-width: 24ch;
+  }
+}
+
+@media (max-width: 420px) {
+  .cta-band__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-band__actions .btn {
+    justify-content: center;
+  }
+}

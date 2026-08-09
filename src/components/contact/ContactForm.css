@@ -1,0 +1,312 @@
+/* =============================================================
+   CONTACT FORM
+   Namespaced .kontakt-form__*
+   ============================================================= */
+
+.kontakt-form {
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  padding: clamp(1.5rem, 1rem + 2vw, 3rem);
+  box-shadow: var(--shadow-md);
+}
+
+.kontakt-form__required-note {
+  font-size: var(--t-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--c-text-muted);
+  margin-bottom: var(--s-6);
+}
+
+.kontakt-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-5);
+}
+
+.kontakt-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.kontakt-form__field--full {
+  grid-column: 1 / -1;
+}
+
+/* ---------- labels ---------- */
+
+.kontakt-form__label {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: var(--brand-ink);
+}
+
+.kontakt-form__req {
+  color: var(--c-accent);
+}
+
+.kontakt-form__optional {
+  font-weight: 400;
+  font-size: var(--t-xs);
+  color: var(--c-text-muted);
+}
+
+/* ---------- controls ---------- */
+
+.kontakt-form__input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  line-height: var(--lh-normal);
+  color: var(--c-text);
+  background: var(--c-bg);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-md);
+  padding: 0.75rem 0.9rem;
+  transition: border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+
+.kontakt-form__input::placeholder {
+  color: var(--c-text-muted);
+}
+
+.kontakt-form__input:hover {
+  border-color: var(--brand-soft);
+}
+
+.kontakt-form__input:focus {
+  outline: none;
+  background: var(--c-bg-alt);
+  border-color: var(--c-action);
+  box-shadow: 0 0 0 3px var(--brand-tint);
+}
+
+.kontakt-form__input:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+.kontakt-form__input[aria-invalid='true'] {
+  border-color: var(--c-accent);
+  background: var(--brand-accent-soft);
+}
+
+.kontakt-form__textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+/* ---------- select ---------- */
+
+.kontakt-form__select-wrap {
+  position: relative;
+  display: block;
+}
+
+.kontakt-form__select {
+  appearance: none;
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+
+.kontakt-form__chevron {
+  position: absolute;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--c-text-muted);
+  pointer-events: none;
+}
+
+/* ---------- consent ---------- */
+
+.kontakt-form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background: var(--c-bg-tint);
+  border-radius: var(--r-md);
+}
+
+.kontakt-form__checkbox {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--c-action);
+  cursor: pointer;
+}
+
+.kontakt-form__checkbox[aria-invalid='true'] {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+.kontakt-form__consent-label {
+  font-size: var(--t-sm);
+  line-height: var(--lh-normal);
+  color: var(--c-text-muted);
+  cursor: pointer;
+}
+
+/* ---------- hints & errors ---------- */
+
+.kontakt-form__hint {
+  font-size: var(--t-xs);
+  line-height: var(--lh-normal);
+  color: var(--c-text-muted);
+}
+
+.kontakt-form__error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  line-height: var(--lh-normal);
+  color: var(--brand-accent);
+}
+
+.kontakt-form__error::before {
+  content: '!';
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--r-pill);
+  background: var(--c-accent);
+  color: var(--c-bg-alt);
+  font-size: var(--t-xs);
+  line-height: 1;
+}
+
+.kontakt-form__status {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--brand-accent);
+}
+
+.kontakt-form__status:not(:empty) {
+  margin-top: var(--s-5);
+}
+
+/* ---------- submit ---------- */
+
+.kontakt-form__submit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+  padding: 1rem 1.9rem;
+  border-radius: var(--r-pill);
+  background: var(--c-action);
+  color: var(--c-text-invert);
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1;
+  box-shadow: var(--shadow-sm);
+  transition: background var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.kontakt-form__submit svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.kontakt-form__submit:hover {
+  background: var(--c-action-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.kontakt-form__submit:hover svg {
+  transform: translateX(4px);
+}
+
+.kontakt-form__submit:active {
+  transform: translateY(0);
+}
+
+/* ---------- success ---------- */
+
+.kontakt-form__success {
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  padding: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.kontakt-form__success:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 4px;
+}
+
+.kontakt-form__success-mark {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 auto var(--s-5);
+  border-radius: var(--r-pill);
+  background: var(--c-bg-tint);
+  color: var(--brand-mid);
+}
+
+.kontakt-form__success-mark svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.kontakt-form__success p {
+  margin-top: var(--s-4);
+  margin-inline: auto;
+  max-width: 42ch;
+  color: var(--c-text-muted);
+  line-height: var(--lh-relaxed);
+}
+
+.kontakt-form__again {
+  margin-top: var(--s-6);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: var(--c-action);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.kontakt-form__again:hover {
+  color: var(--c-accent);
+}
+
+/* =============================================================
+   RESPONSIVE
+   ============================================================= */
+
+@media (max-width: 620px) {
+  .kontakt-form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kontakt-form__field--full {
+    grid-column: auto;
+  }
+}

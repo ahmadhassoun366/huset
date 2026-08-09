@@ -1,0 +1,14 @@
+/* Page-level composition for the front page. All section-specific styling
+   lives beside its component in src/components/home/. */
+
+.home {
+  /* `clip` rather than `hidden`: it trims the decorative overhangs without
+     creating a scroll container, so the sticky column in the "Vi møder
+     mennesket" section keeps working. */
+  overflow-x: clip;
+}
+
+/* two neighbouring light sections need a hairline to stay distinct */
+.home > .section--paper + .section--tint {
+  border-top: 1px solid var(--c-line);
+}
