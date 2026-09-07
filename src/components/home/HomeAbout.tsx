@@ -4,10 +4,10 @@ import { Reveal } from '../ui/Reveal'
 import './HomeAbout.css'
 
 const PARAGRAPHS = [
-  'Hos os har vi sammensat et veluddannet, erfarent og passioneret medarbejderteam, der leverer kvalificeret socialpædagogisk indsats til udsatte og sårbare børn, unge og voksne.',
-  'Vi er specialister i at håndtere komplekse problemstillinger og tilbyder støtte til børn, unge og voksne med forskellige udfordringer – herunder adfærds- og tilknytningsforstyrrelser, opmærksomhedsforstyrrelser, udadreagerende adfærd samt autismespektrumforstyrrelser. Derudover arbejder vi kriminalpræventivt i tæt samarbejde med borgere, der udviser kriminalitetstruet adfærd, og som kræver særlig faglig ekspertise.',
-  'Vi tror på, at differentierede og skræddersyede tilbud – med et bredt udvalg af muligheder – skaber de bedste betingelser for en sund og positiv udvikling hos den enkelte. Det enkelte individ er i centrum, og vi tager altid udgangspunkt i, hvor personen er her og nu, samt hvilke drømme og mål der findes for fremtiden.',
-  'Vi tilbyder mindre børne- og ungeafdelinger samt skærmede botilbud med høj normering. Hos os er der tid og plads til det enkelte barn og unge menneske – til relationen, til udviklingen og til hverdagen i et trygt fællesskab. Vores fokus er at skabe stabile rammer, hvor børn og unge oplever forudsigelighed, omsorg og støtte fra fagligt kompetente medarbejdere. De mindre enheder gør det muligt at arbejde tættere og mere individuelt, så vi kan tilpasse indsatsen præcist efter den enkelts behov, ressourcer og trivsel.',
+  'Stjernestøv er et socialpædagogisk tilbud med én afdeling i Jylland og varetager driften af et børne- og ungehjem i overensstemmelse med Barnets lov § 43.',
+  'Vi arbejder med højt specialiserede indsatser rettet mod børn og unge, der har komplekse behov. Vores faglige grundlag omfatter støtte til målgrupper med udfordringer som fx tilknytnings- og adfærdsproblematikker, opmærksomhedsvanskeligheder, udadreagerende adfærd samt andre udviklings- og personlighedsmæssige problemstillinger.',
+  'Vores overordnede ambition er at tilbyde et højt kvalificeret og pålideligt socialpædagogisk tilbud, der skaber værdi for både borgere og de kommuner, vi samarbejder med. I Stjernestøv arbejder vi målrettet for at styrke borgernes trivsel og personlige udvikling, så de gradvist kan opnå øget selvstændighed og mestring i deres hverdag.',
+  'For mere information er I velkomne til at besøge vores hjemmeside eller rette henvendelse til vores visitationsteam.',
 ]
 
 export function HomeAbout() {

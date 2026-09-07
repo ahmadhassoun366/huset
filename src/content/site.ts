@@ -9,12 +9,12 @@
    ============================================================= */
 
 export const BRAND = {
-  /** Display name, e.g. "Samita". PLACEHOLDER — replace when decided. */
-  name: 'Navnet',
+  /** Display name. */
+  name: 'Huset Stjernestøv',
   /** Full legal entity used in the footer / contact page. */
-  legalName: 'Administrationen Navnet ApS',
+  legalName: 'Huset Stjernestøv ApS',
   /** Domain shown in the footer copyright line. */
-  domain: 'navnet.dk',
+  domain: 'husetstjernestoev.dk',
   /** One-line promise used in the hero and footer. */
   tagline:
     'Alle har ret til en ny fortælling – hos os skaber vi den sammen',
@@ -23,7 +23,7 @@ export const BRAND = {
 export const CONTACT = {
   phone: '(+45) 61 40 43 46',
   phoneHref: '+4561404346',
-  email: 'info@navnet.dk',
+  email: 'info@husetstjernestoev.dk',
   address: 'Bogøvej 15, 8382 Hinnerup',
   cvr: '44276631',
   onCall: {

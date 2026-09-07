@@ -1,17 +1,13 @@
-import { img } from '../../lib/images'
-import { Button } from '../ui/Button'
-import { Reveal } from '../ui/Reveal'
-import './HomeHero.css'
+import { img } from "../../lib/images";
+import { Button } from "../ui/Button";
+import { Reveal } from "../ui/Reveal";
+import "./HomeHero.css";
 
-const FACTS = [
-  'Mindre afdelinger',
-  'Høj normering',
-  'Flere steder i Jylland',
-]
+const FACTS = ["Mindre afdelinger", "Høj normering", "Flere steder i Jylland"];
 
 export function HomeHero() {
-  const main = img('hero')
-  const inset = img('heroSecondary')
+  const main = img("hero");
+  const inset = img("heroSecondary");
 
   return (
     <section className="home-hero" aria-labelledby="home-hero-title">
@@ -22,15 +18,14 @@ export function HomeHero() {
           <p className="eyebrow">Børne- &amp; ungehjem samt botilbud</p>
 
           <h1 id="home-hero-title" className="home-hero__title">
-            Alle har ret til <em>en ny fortælling</em> – hos os skaber vi
-            den sammen
+            Din nye fortælling starter hos <em>Stjernestøv</em> – sammen skaber
+            vi den.
           </h1>
 
           <p className="lead home-hero__lead">
             Vi driver børne- og ungehjem samt botilbud med flere afdelinger i
             Jylland. Mindre enheder, høj normering og et erfarent
-            medarbejderteam giver tid til relationen, udviklingen og
-            hverdagen.
+            medarbejderteam giver tid til relationen, udviklingen og hverdagen.
           </p>
 
           <div className="home-hero__actions">
@@ -76,5 +71,5 @@ export function HomeHero() {
         </Reveal>
       </div>
     </section>
-  )
+  );
 }

@@ -27,7 +27,7 @@ export const BRAND = {
   name: 'Navnet',                          // ← the display name
   legalName: 'Administrationen Navnet ApS', // ← legal entity in the footer
   domain: 'navnet.dk',                      // ← shown in the copyright line
-  tagline: 'Alle har ret til en ny fortælling – hos os skaber vi den sammen',
+  tagline: 'Din nye fortælling starter hos Stjernestøv – sammen skaber vi den.',
 }
 ```
 
