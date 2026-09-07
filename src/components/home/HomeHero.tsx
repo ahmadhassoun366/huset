@@ -32,8 +32,8 @@ export function HomeHero() {
             <Button to="/hvem-er-vi" size="lg">
               Hvem er vi?
             </Button>
-            <Button to="/afdelinger" variant="secondary" size="lg">
-              Afdelinger
+            <Button to="/kontakt-os" variant="secondary" size="lg">
+              Kontakt os
             </Button>
           </div>
 

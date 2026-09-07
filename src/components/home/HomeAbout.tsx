@@ -4,10 +4,11 @@ import { Reveal } from '../ui/Reveal'
 import './HomeAbout.css'
 
 const PARAGRAPHS = [
-  'Stjernestøv er et socialpædagogisk tilbud med én afdeling i Jylland og varetager driften af et børne- og ungehjem i overensstemmelse med Barnets lov § 43.',
-  'Vi arbejder med højt specialiserede indsatser rettet mod børn og unge, der har komplekse behov. Vores faglige grundlag omfatter støtte til målgrupper med udfordringer som fx tilknytnings- og adfærdsproblematikker, opmærksomhedsvanskeligheder, udadreagerende adfærd samt andre udviklings- og personlighedsmæssige problemstillinger.',
-  'Vores overordnede ambition er at tilbyde et højt kvalificeret og pålideligt socialpædagogisk tilbud, der skaber værdi for både borgere og de kommuner, vi samarbejder med. I Stjernestøv arbejder vi målrettet for at styrke borgernes trivsel og personlige udvikling, så de gradvist kan opnå øget selvstændighed og mestring i deres hverdag.',
-  'For mere information er I velkomne til at besøge vores hjemmeside eller rette henvendelse til vores visitationsteam.',
+  'Stjernestøv er et socialpædagogisk tilbud beliggende i Låsby, Skanderborg – centralt i hjertet af Jylland. Vi driver et børne- og ungehjem i overensstemmelse med Barnets lov § 43.',
+  'Vi arbejder med specialiserede socialpædagogiske indsatser for børn og unge med komplekse støttebehov. Vores faglige grundlag omfatter blandt andet støtte til børn og unge med tilknytnings- og adfærdsmæssige problematikker, opmærksomhedsvanskeligheder, udadreagerende adfærd samt andre udviklings- og personlighedsmæssige udfordringer.',
+  'I Stjernestøv lægger vi vægt på at skabe trygge, stabile og forudsigelige rammer, hvor barnet eller den unge mødes med nærvær, omsorg og høj socialpædagogisk faglighed. Indsatsen tilrettelægges med udgangspunkt i den enkeltes ressourcer, behov og udviklingsmuligheder.',
+  'Vi arbejder målrettet med det enkelte barns trivsel og udvikling og lægger vægt på et tæt og pålideligt samarbejde med kommuner og øvrige aktører omkring barnet.',
+  'Målet er at styrke barnets personlige og sociale udvikling og skabe et solidt fundament for fremtiden.',
 ]
 
 export function HomeAbout() {
@@ -53,8 +54,7 @@ export function HomeAbout() {
           <Reveal>
             <p className="eyebrow">Om os</p>
             <h2 id="home-about-title" className="home-about__title">
-              Vi består af børne- og ungehjem samt botilbud med flere
-              afdelinger i Jylland
+              Børne- og ungehjem i Låsby, Skanderborg – centralt i Jylland
             </h2>
           </Reveal>
 

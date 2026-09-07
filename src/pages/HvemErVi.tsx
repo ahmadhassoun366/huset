@@ -90,20 +90,17 @@ export default function HvemErVi() {
 
           <Reveal className="hvem__intro-body" delay={90}>
             <p className="hvem__opening">
-              Vi er et socialpædagogisk tilbud, der driver både børne- og
-              ungehjem efter <strong>Barnets Lov § 43</strong> samt botilbud til
-              unge og voksne efter <strong>Servicelovens § 107 &amp; 108</strong>.
+              Stjernestøv er et socialpædagogisk tilbud beliggende i Låsby, Skanderborg – centralt i hjertet af Jylland. Vi driver et børne- og ungehjem i overensstemmelse med <strong>Barnets lov § 43</strong>.
             </p>
             <div className="prose hvem__prose">
               <p>
-                Vores vision er at tilbyde et fagligt velfunderet og troværdigt
-                tilbud – til gavn for både borgerne og deres hjemkommuner.
+                Vi arbejder med specialiserede socialpædagogiske indsatser for børn og unge med komplekse støttebehov. Vores faglige grundlag omfatter blandt andet støtte til børn og unge med tilknytnings- og adfærdsmæssige problematikker, opmærksomhedsvanskeligheder, udadreagerende adfærd samt andre udviklings- og personlighedsmæssige udfordringer.
               </p>
               <p>
-                Vores overordnede målsætning er at skabe trivsel, udvikling og
-                livsduelighed hos den enkelte borger, med det mål at vedkommende
-                på sigt kan leve et så selvstændigt og meningsfuldt liv som
-                muligt.
+                I Stjernestøv lægger vi vægt på at skabe trygge, stabile og forudsigelige rammer, hvor barnet eller den unge mødes med nærvær, omsorg og høj socialpædagogisk faglighed. Indsatsen tilrettelægges med udgangspunkt i den enkeltes ressourcer, behov og udviklingsmuligheder.
+              </p>
+              <p>
+                Vi arbejder målrettet med det enkelte barns trivsel og udvikling og lægger vægt på et tæt og pålideligt samarbejde med kommuner og øvrige aktører omkring barnet. Målet er at styrke barnets personlige og sociale udvikling og skabe et solidt fundament for fremtiden.
               </p>
             </div>
           </Reveal>

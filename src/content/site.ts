@@ -66,17 +66,6 @@ export const NAV: NavItem[] = [
       { label: 'Bestyrelsen', to: '/hvem-er-vi/bestyrelsen' },
     ],
   },
-  {
-    label: 'Afdelinger',
-    to: '/afdelinger',
-    children: [
-      { label: 'Knudsbjergvej', to: '/afdelinger/knudsbjergvej' },
-      { label: 'Overgårdsvej', to: '/afdelinger/overgaardsvej' },
-      { label: 'Skanderborgvej 180', to: '/afdelinger/skanderborgvej-180' },
-      { label: 'Skanderborgvej 182', to: '/afdelinger/skanderborgvej-182' },
-      { label: 'Gl. Århusvej', to: '/afdelinger/gl-aarhusvej' },
-    ],
-  },
   { label: 'Fortællinger', to: '/fortaellinger' },
   { label: 'Tilsyn', to: '/tilsyn' },
   { label: 'Kontakt os', to: '/kontakt-os' },
