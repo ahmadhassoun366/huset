@@ -18,7 +18,8 @@ try {
   }
   for (const [path, heading] of Object.entries(routes)) {
     const html = renderToStaticMarkup(createElement(StaticRouter, { location: path }, createElement(App)))
-    assert.ok(html.includes(heading), `${path}: missing approved heading`)
+    const plainText = html.replace(/<[^>]*>/g, '')
+    assert.ok(plainText.includes(heading), `${path}: missing approved heading`)
     assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${path}: exactly one h1`)
     assert.ok(html.includes('name="description"'), `${path}: missing description`)
     assert.ok(html.includes('property="og:title"'), `${path}: missing Open Graph title`)

@@ -52,11 +52,16 @@ export const everydayIntro = 'Vi understøtter skolegang, fritidsliv, sociale re
 export const approval = 'Stjernestøv er godkendt som børne- og ungehjem med fem pladser efter Barnets lov § 43, stk. 1, nr. 6 og stk. 3.'
 
 export const team = [
-  { image: 'member1.jpg', name: 'Navn', role: 'Titel' },
-  { image: 'member2.jpg', name: 'Navn', role: 'Titel' },
-  { image: 'member3.png', name: 'Navn', role: 'Titel' },
-  { image: 'member4.JPG', name: 'Navn', role: 'Titel' },
-  { image: 'member5.PNG', name: 'Navn', role: 'Titel' },
+  { image: 'member1.jpg', name: 'Yakub Yigit Gökce', role: 'Tilbudsleder', education: 'Cand.Pæd.Pæd.Psyk', kind: 'employee' },
+  { image: 'member2.jpg', name: 'Kathrine Lautrup Bentsen', role: 'Adm.', education: 'Cand.Pæd.Pæd.Psyk', kind: 'employee' },
+  { image: 'member3.png', name: 'Kia Schack', role: 'Bestyrelsesformand', education: '', kind: 'board' },
+  { image: 'member4.JPG', name: 'Huso Habul', role: 'Bestyrelsesmedlem', education: '', kind: 'board' },
+  { image: 'member5.PNG', name: 'Egzon Halilaj', role: 'Bestyrelsesmedlem', education: '', kind: 'board' },
+]
+
+export const contactPeople = [
+  { name: 'Yakub Yigit Gökce', role: 'Tilbudsleder', phone: '+45 60 22 33 47', phoneHref: 'tel:+4560223347', email: 'yg@husetstjernestøv.dk', image: 'member1.jpg' },
+  { name: 'Kathrine Lautrup Bentsen', role: 'Adm.', phone: '+45 93 98 27 70', phoneHref: 'tel:+4593982770', email: 'kb@husetstjernestøv.dk', image: 'member2.jpg' },
 ]
 
 export const supportTopics: CardContent[] = [

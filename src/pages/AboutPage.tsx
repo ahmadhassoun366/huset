@@ -2,6 +2,12 @@ import { NumberedCards, PageIntro, Seo } from '../components/Elements'
 import { team, values } from '../content/site'
 
 export default function AboutPage() {
+  const board = team.filter(member => member.kind === 'board')
+  const employees = team.filter(member => member.kind === 'employee')
+  const renderTeamCard = (member: typeof team[number]) => <article className={`team-card ${member.kind === 'board' ? 'team-card-board' : ''}`} key={member.image}>
+    <img src={`/images/${member.image}`} alt={`Portræt af ${member.name}`} loading="lazy" width="480" height="600" />
+    <h3>{member.name}</h3><p>{member.role}</p>{member.education ? <p className="team-education">{member.education}</p> : null}
+  </article>
   return <>
     <Seo title="Om os" description="Lær Huset Stjernestøv at kende. Et mindre børne- og ungehjem i Forlev med fem pladser, stabile relationer og tid til det enkelte barn." />
     <PageIntro label="Om os" title="Om Huset Stjernestøv" />
@@ -24,11 +30,9 @@ export default function AboutPage() {
         <p>Forældre og familie er en vigtig del af mange børns liv – også når barnet er anbragt.</p>
         <p>Vi lægger vægt på et respektfuldt samarbejde med barnets familie og netværk, når det er i overensstemmelse med rammerne omkring anbringelsen. Et godt samarbejde mellem de voksne omkring barnet kan skabe mere ro og sammenhæng.</p>
       </div></section>
-      <section className="team-section"><p className="eyebrow">Menneskene i huset</p><h2>Vores medarbejdere</h2><p className="placeholder-note">Navne og titler afventer.</p>
-        <div className="team-grid">{team.map((member, index) => <article className="team-card" key={member.image}>
-          <img src={`/images/${member.image}`} alt={member.name === 'Navn' ? `Portræt af medarbejder ${index + 1} – navn afventer` : `Portræt af ${member.name}`} loading="lazy" width="480" height="600" />
-          <h3>{member.name}</h3><p>{member.role}</p>
-        </article>)}</div>
+      <section className="team-section"><p className="eyebrow">Menneskene i huset</p><h2>Vores medarbejdere</h2>
+        <div className="team-group"><div className="team-group-heading"><span>Bestyrelse</span><span>Ledelse og ansvar</span></div><div className="team-grid team-grid-board">{board.map(renderTeamCard)}</div></div>
+        <div className="team-group"><div className="team-group-heading"><span>Medarbejdere</span><span>Den daglige indsats</span></div><div className="team-grid team-grid-employees">{employees.map(renderTeamCard)}</div></div>
       </section>
     </div>
   </>

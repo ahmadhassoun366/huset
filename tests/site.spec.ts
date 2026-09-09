@@ -57,11 +57,12 @@ test('Mobile navigation supports keyboard, Escape, route changes and back', asyn
   await expect(page).toHaveTitle('Alle har ret til en ny fortælling | Huset Stjernestøv')
 })
 
-test('Contact calls the real number and keeps unconfirmed email unlinked', async ({ page }) => {
+test('Contact shows both contact persons and their real details', async ({ page }) => {
   await page.goto('/kontakt')
   await expect(page.getByRole('link', { name: 'Ring til os' })).toHaveAttribute('href', 'tel:+4560223347')
-  await expect(page.getByText('E-mail afventer')).toBeVisible()
-  await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0)
+  await expect(page.getByRole('link', { name: 'yg@husetstjernestøv.dk' })).toHaveAttribute('href', 'mailto:yg@husetstjernestøv.dk')
+  await expect(page.getByRole('link', { name: 'kb@husetstjernestøv.dk' })).toHaveAttribute('href', 'mailto:kb@husetstjernestøv.dk')
+  await expect(page.getByRole('link', { name: '+45 93 98 27 70' })).toHaveAttribute('href', 'tel:+4593982770')
   await expect(page.locator('iframe')).toHaveAttribute('src', /L%C3%A5sbyvej\+61/)
 })
 
@@ -69,7 +70,9 @@ test('Static HTML contains route-specific content without JavaScript', async ({ 
   const context = await browser.newContext({ javaScriptEnabled: false })
   const page = await context.newPage()
   for (const [route, heading] of routes) {
-    await page.goto(`http://127.0.0.1:4173${route}`)
+    // Vite preview serves prerendered nested documents from their directory index.
+    const staticRoute = route === '/' ? route : `${route}/`
+    await page.goto(`http://127.0.0.1:4173${staticRoute}`)
     await expect(page.locator('h1')).toHaveText(heading)
     await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', /.+/)
   }

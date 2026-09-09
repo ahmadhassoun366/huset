@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import type { CardContent } from '../content/site'
 
@@ -31,8 +31,8 @@ export function MethodCards({ items }: { items: CardContent[] }) {
   ))}</div>
 }
 
-export function PageIntro({ label, title, children }: { label: string; title: string; children?: ReactNode }) {
-  return <section className="page-intro"><div className="container">
+export function PageIntro({ label, title, children, className = '' }: { label: string; title: string; children?: ReactNode; className?: string }) {
+  return <section className={`page-intro ${className}`}><div className="container">
     <p className="eyebrow"><Star />{label}</p>
     <h1>{title}</h1>{children ? <div className="page-intro-copy">{children}</div> : null}
   </div><Star className="intro-star" /></section>
@@ -40,6 +40,26 @@ export function PageIntro({ label, title, children }: { label: string; title: st
 
 export function Seo({ title, description }: { title: string; description: string }) {
   const fullTitle = `${title} | Huset Stjernestøv`
+  useEffect(() => {
+    document.title = fullTitle
+    const values: Record<string, string> = {
+      description,
+      'og:title': fullTitle,
+      'og:description': description,
+      'og:type': 'website',
+      'og:locale': 'da_DK',
+      'og:site_name': 'Huset Stjernestøv',
+      'og:image': '/images/house1.jfif',
+      'og:image:alt': 'Huset Stjernestøvs rødstenshus i Forlev',
+    }
+    for (const [name, content] of Object.entries(values)) {
+      const selector = name.startsWith('og:') ? `meta[property="${name}"]` : `meta[name="${name}"]`
+      const meta = document.head.querySelector<HTMLMetaElement>(selector) ?? document.head.appendChild(document.createElement('meta'))
+      meta.setAttribute(name.startsWith('og:') ? 'property' : 'name', name)
+      meta.content = content
+    }
+  }, [description, fullTitle])
+  if (typeof window !== 'undefined') return null
   return <>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />

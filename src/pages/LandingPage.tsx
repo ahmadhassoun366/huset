@@ -7,7 +7,7 @@ export default function LandingPage() {
     <Seo title="Alle har ret til en ny fortælling" description="Et trygt og hjemligt børne- og ungehjem i Forlev ved Skanderborg. Fem pladser til børn og unge i alderen 7–17 år med brug for omsorg, støtte og nærvær." />
     <section className="home-hero" aria-labelledby="hero-title">
       <div className="hero-copy"><p className="eyebrow"><Star />Et lille hjem. En ny begyndelse.</p>
-        <h1 id="hero-title">Alle har ret til<br />en <em>ny fortælling</em></h1>
+        <h1 id="hero-title">Alle har ret til <span className="hero-line">en <em>ny fortælling</em></span></h1>
         <p className="hero-lead">Et trygt og hjemligt børne- og ungehjem for børn og unge, der har brug for ekstra omsorg, støtte og nærvær i deres hverdag.</p>
         <div className="hero-actions"><Link className="button" to="/om-os">Læs om Stjernestøv<Arrow /></Link><Link className="button button-outline" to="/kontakt">Henvendelse om plads<Arrow /></Link></div>
         <ul className="stat-badges" aria-label="Kort om huset"><li>5 pladser</li><li>7–17 år</li><li>Forlev, Skanderborg</li></ul>
