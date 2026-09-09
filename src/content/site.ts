@@ -9,12 +9,13 @@ export const site = {
 }
 
 export const navigation = [
-  { path: '/om-os', label: 'Om os' },
+  { path: '/', label: 'Forside' },
   { path: '/malgruppe', label: 'Målgruppe' },
   { path: '/faglig-tilgang', label: 'Faglig tilgang' },
   { path: '/hverdagen', label: 'Hverdagen' },
   { path: '/for-kommuner', label: 'For kommuner' },
   { path: '/kontakt', label: 'Kontakt' },
+  { path: '/om-os', label: 'Om os' },
 ]
 
 export type CardContent = { title: string; text: string }
