@@ -1,0 +1,35 @@
+import { NumberedCards, PageIntro, Seo } from '../components/Elements'
+import { team, values } from '../content/site'
+
+export default function AboutPage() {
+  return <>
+    <Seo title="Om os" description="Lær Huset Stjernestøv at kende. Et mindre børne- og ungehjem i Forlev med fem pladser, stabile relationer og tid til det enkelte barn." />
+    <PageIntro label="Om os" title="Om Huset Stjernestøv" />
+    <div className="container page-body">
+      <section className="reading-section"><h2>Et mindre tilbud med tid til det enkelte barn</h2><div className="prose">
+        <p>Huset Stjernestøv er et socialpædagogisk børne- og ungehjem i Forlev – i rolige, landlige omgivelser uden for Skanderborg. Vi har plads til fem børn og unge. Det giver os mulighed for at være tæt på det enkelte barn og skabe en hverdag med tid til relationer, nærvær og individuel støtte.</p>
+        <p>Hos os skal børnene møde voksne, der er tilgængelige, tydelige og oprigtigt interesserede i dem. Vi lægger vægt på trygge og stabile rammer og på at skabe et sted, der føles som et hjem.</p>
+      </div></section>
+      <NumberedCards items={values} />
+      <section id="huset" className="reading-section"><h2>Huset og omgivelserne — Ro og natur uden for Skanderborg</h2><div className="prose">
+        <p>Stjernestøv ligger på landet i Forlev, omgivet af åbne marker, natur og god plads omkring huset. Her er afstand til byens støj og mulighed for en rolig og overskuelig hverdag.</p>
+        <p>Huset danner rammen om både fællesskab og privatliv. Der er plads til aktiviteter og samvær, men også mulighed for at trække sig tilbage og finde ro. Samtidig er der kort afstand til Skanderborg og gode forbindelser til resten af Midtjylland.</p>
+      </div></section>
+      <figure className="house-figure"><img src="/images/house2.jfif" alt="Huset Stjernestøvs rødstenshus set fra haven med terrasse og indgang" width="1600" height="1074" loading="lazy" /><figcaption>Huset Stjernestøvs rødstenshus og indgangsparti</figcaption></figure>
+      <section className="reading-section"><h2>Barnet skal have en stemme — Ikke bare modtager af en indsats</h2><div className="prose">
+        <p>Vi ønsker, at barnet bliver hørt og inddraget i de beslutninger, der vedrører barnets eget liv og hverdag.</p>
+        <p>Sammen med barnet arbejder vi med konkrete mål og følger løbende op på, hvad der fungerer, hvad der er svært, og om noget skal gøres anderledes. Det handler også om at få øje på fremskridtene – de små såvel som de store.</p>
+      </div></section>
+      <section className="reading-section"><h2>Familie og netværk — Sammenhæng omkring barnet</h2><div className="prose">
+        <p>Forældre og familie er en vigtig del af mange børns liv – også når barnet er anbragt.</p>
+        <p>Vi lægger vægt på et respektfuldt samarbejde med barnets familie og netværk, når det er i overensstemmelse med rammerne omkring anbringelsen. Et godt samarbejde mellem de voksne omkring barnet kan skabe mere ro og sammenhæng.</p>
+      </div></section>
+      <section className="team-section"><p className="eyebrow">Menneskene i huset</p><h2>Vores medarbejdere</h2><p className="placeholder-note">Navne og titler afventer.</p>
+        <div className="team-grid">{team.map((member, index) => <article className="team-card" key={member.image}>
+          <img src={`/images/${member.image}`} alt={member.name === 'Navn' ? `Portræt af medarbejder ${index + 1} – navn afventer` : `Portræt af ${member.name}`} loading="lazy" width="480" height="600" />
+          <h3>{member.name}</h3><p>{member.role}</p>
+        </article>)}</div>
+      </section>
+    </div>
+  </>
+}

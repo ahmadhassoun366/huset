@@ -1,50 +1,39 @@
-import { Route, Routes } from 'react-router-dom'
-import { Layout } from './components/layout/Layout'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { ContactBand, Footer, Header, RouteFocus } from './components/SiteLayout'
+import { PageIntro, Seo, TextLink } from './components/Elements'
+import LandingPage from './pages/LandingPage'
+import AboutPage from './pages/AboutPage'
+import TargetPage from './pages/TargetPage'
+import ApproachPage from './pages/ApproachPage'
+import EverydayPage from './pages/EverydayPage'
+import MunicipalityPage from './pages/MunicipalityPage'
+import ContactPage from './pages/ContactPage'
 
-import Home from './pages/Home'
-import Kommuner from './pages/Kommuner'
-import Paedagogik from './pages/Paedagogik'
-import Maalgruppe from './pages/Maalgruppe'
-import HvemErVi from './pages/HvemErVi'
-import Vaerdier from './pages/Vaerdier'
-import Bestyrelsen from './pages/Bestyrelsen'
-import Afdelinger from './pages/Afdelinger'
-import DepartmentPage from './pages/DepartmentPage'
-import Fortaellinger from './pages/Fortaellinger'
-import Tilsyn from './pages/Tilsyn'
-import KontaktOs from './pages/KontaktOs'
-import BarnetsLov from './pages/BarnetsLov'
-import NotFound from './pages/NotFound'
+function NotFoundPage() {
+  return <><Seo title="Siden blev ikke fundet" description="Siden findes ikke. Find tilbage til Huset Stjernestøvs forside." /><meta name="robots" content="noindex" /><PageIntro label="404" title="Siden blev ikke fundet"><TextLink to="/">Tilbage til forsiden</TextLink></PageIntro></>
+}
 
 export default function App() {
-  return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<Home />} />
-
-        <Route path="kommuner">
-          <Route index element={<Kommuner />} />
-          <Route path="paedagogik" element={<Paedagogik />} />
-          <Route path="maalgruppe" element={<Maalgruppe />} />
-        </Route>
-
-        <Route path="hvem-er-vi">
-          <Route index element={<HvemErVi />} />
-          <Route path="vaerdier" element={<Vaerdier />} />
-          <Route path="bestyrelsen" element={<Bestyrelsen />} />
-        </Route>
-
-        <Route path="afdelinger">
-          <Route index element={<Afdelinger />} />
-          <Route path=":slug" element={<DepartmentPage />} />
-        </Route>
-
-        <Route path="fortaellinger" element={<Fortaellinger />} />
-        <Route path="tilsyn" element={<Tilsyn />} />
-        <Route path="kontakt-os" element={<KontaktOs />} />
-        <Route path="barnets-lov" element={<BarnetsLov />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
-  )
+  const { pathname, hash } = useLocation()
+  useEffect(() => {
+    if (hash) document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView()
+  }, [pathname, hash])
+  return <>
+    <a className="skip-link" href="#main-content">Spring til indhold</a>
+    <Header key={pathname} /><RouteFocus />
+    <main id="main-content" tabIndex={-1}>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/om-os" element={<AboutPage />} />
+        <Route path="/malgruppe" element={<TargetPage />} />
+        <Route path="/faglig-tilgang" element={<ApproachPage />} />
+        <Route path="/hverdagen" element={<EverydayPage />} />
+        <Route path="/for-kommuner" element={<MunicipalityPage />} />
+        <Route path="/kontakt" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      {pathname !== '/kontakt' ? <ContactBand /> : null}
+    </main><Footer />
+  </>
 }

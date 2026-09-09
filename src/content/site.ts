@@ -1,217 +1,74 @@
-/* =============================================================
-   SITE CONTENT — SINGLE SOURCE OF TRUTH
-   -------------------------------------------------------------
-   >>> THE COMPANY NAME LIVES IN `BRAND` BELOW. <<<
-   Change those few strings and the name updates everywhere on
-   the site — header, footer, page titles, body copy and all.
-   Never hard-code the company name anywhere else; always import
-   BRAND from this file.
-   ============================================================= */
-
-export const BRAND = {
-  /** Display name. */
+export const site = {
   name: 'Huset Stjernestøv',
-  /** Full legal entity used in the footer / contact page. */
-  legalName: 'Huset Stjernestøv ApS',
-  /** Domain shown in the footer copyright line. */
-  domain: 'husetstjernestoev.dk',
-  /** One-line promise used in the hero and footer. */
-  tagline:
-    'Alle har ret til en ny fortælling – hos os skaber vi den sammen',
-} as const
-
-export const CONTACT = {
-  phone: '(+45) 61 40 43 46',
-  phoneHref: '+4561404346',
-  email: 'info@husetstjernestoev.dk',
-  address: 'Bogøvej 15, 8382 Hinnerup',
-  cvr: '44276631',
-  onCall: {
-    label: 'Døgntelefon til visitationsteam (forbeholdt myndighed)',
-    phone: '(+45) 71 74 04 16',
-    phoneHref: '+4571740416',
-  },
-  linkedin:
-    'https://www.linkedin.com/company/samitadk/about/?viewAsMember=true',
-} as const
-
-export const OPENING_HOURS = [
-  { days: 'Man – torsdag', hours: '08:00 – 15:30' },
-  { days: 'Fredag', hours: '08:00 – 14:00' },
-  { days: 'Lør – søndag', hours: 'Lukket' },
-] as const
-
-/* -------------------------------------------------------------
-   NAVIGATION — mirrors the original site's header exactly.
-   ------------------------------------------------------------- */
-
-export type NavChild = { label: string; to: string }
-export type NavItem = { label: string; to: string; children?: NavChild[] }
-
-export const NAV: NavItem[] = [
-  { label: 'Forside', to: '/' },
-  {
-    label: 'Kommuner',
-    to: '/kommuner',
-    children: [
-      { label: 'Pædagogik', to: '/kommuner/paedagogik' },
-      { label: 'Målgruppe', to: '/kommuner/maalgruppe' },
-    ],
-  },
-  {
-    label: 'Hvem er vi',
-    to: '/hvem-er-vi',
-    children: [
-      { label: 'Værdier', to: '/hvem-er-vi/vaerdier' },
-      { label: 'Bestyrelsen', to: '/hvem-er-vi/bestyrelsen' },
-    ],
-  },
-  { label: 'Fortællinger', to: '/fortaellinger' },
-  { label: 'Tilsyn', to: '/tilsyn' },
-  { label: 'Kontakt os', to: '/kontakt-os' },
-]
-
-export const FOOTER_INFO_LINKS = [
-  {
-    label: 'Tilbudsportalen',
-    href: 'https://www.sbst.dk/tvaergaende-omrader/tilbudsportalen',
-    external: true,
-  },
-  {
-    label: 'Whistleblowerordning',
-    href: 'https://whistleblowersoftware.com/secure/9ed64a7b-3147-4a83-9635-35a542852f7a',
-    external: true,
-  },
-  {
-    label: 'Styrelsen for Patientsikkerhed',
-    href: 'https://stps.dk/',
-    external: true,
-  },
-  {
-    label: 'Tilsyn midt',
-    href: 'https://tilsynmidt.silkeborg.dk/',
-    external: true,
-  },
-  { label: 'Barnets lov § 43', href: '/barnets-lov', external: false },
-] as const
-
-/* -------------------------------------------------------------
-   DEPARTMENTS — shared between the overview and detail pages.
-   ------------------------------------------------------------- */
-
-import type { ImageKey } from '../lib/images'
-
-export type Department = {
-  slug: string
-  name: string
-  /** Legal approval basis, verbatim from the original site. */
-  approval: string
-  to: string
-  image: ImageKey
+  phone: '+45 60 22 33 47',
+  phoneHref: 'tel:+4560223347',
+  address: 'Låsbyvej 61, Forlev, 8660 Skanderborg',
+  cvr: '45975843',
+  email: '', // Indsæt den bekræftede arbejdsmail her.
+  mapUrl: 'https://www.google.com/maps?q=L%C3%A5sbyvej+61,+Forlev,+8660+Skanderborg',
 }
 
-export const DEPARTMENTS: Department[] = [
-  {
-    slug: 'knudsbjergvej',
-    name: 'Knudsbjergvej',
-    approval: 'Botilbud godkendt jf. servicelovens § 107',
-    to: '/afdelinger/knudsbjergvej',
-    image: 'deptKnudsbjergvej',
-  },
-  {
-    slug: 'overgaardsvej',
-    name: 'Overgårdsvej',
-    approval:
-      'Børne- og ungehjem og botilbud godkendt jf. Barnets lov § 43, stk. 1, nr. 6 og stk. 3 og servicelovens § 107',
-    to: '/afdelinger/overgaardsvej',
-    image: 'deptOvergaardsvej',
-  },
-  {
-    slug: 'skanderborgvej-180',
-    name: 'Skanderborgvej 180',
-    approval:
-      'Børne- og ungehjem og botilbud godkendt jf. Barnets lov § 43, stk. 1, nr. 6 og stk. 3',
-    to: '/afdelinger/skanderborgvej-180',
-    image: 'deptSkanderborgvej180',
-  },
-  {
-    slug: 'skanderborgvej-182',
-    name: 'Skanderborgvej 182',
-    approval: 'Botilbud godkendt jf. servicelovens § 107 og 108',
-    to: '/afdelinger/skanderborgvej-182',
-    image: 'deptSkanderborgvej182',
-  },
-  {
-    slug: 'gl-aarhusvej',
-    name: 'Gl. Århusvej',
-    approval:
-      'Børne- og ungehjem og botilbud godkendt jf. Barnets lov § 43, stk. 1, nr. 6 og stk. 3 og servicelovens § 107',
-    to: '/afdelinger/gl-aarhusvej',
-    image: 'deptGlAarhusvej',
-  },
+export const navigation = [
+  { path: '/om-os', label: 'Om os' },
+  { path: '/malgruppe', label: 'Målgruppe' },
+  { path: '/faglig-tilgang', label: 'Faglig tilgang' },
+  { path: '/hverdagen', label: 'Hverdagen' },
+  { path: '/for-kommuner', label: 'For kommuner' },
+  { path: '/kontakt', label: 'Kontakt' },
 ]
 
-/* -------------------------------------------------------------
-   TESTIMONIALS — verbatim from the original site.
-   ------------------------------------------------------------- */
+export type CardContent = { title: string; text: string }
 
-export type Testimonial = {
-  quote: string
-  author: string
-  role: string
-}
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    quote:
-      '{brand} har skabt både trivsel og udvikling hos de borgere, jeg har anbragt hos dem. Deres pædagogiske indsatser bærer præg af høj faglighed, ordentlighed og en stærk evne til at skabe autentiske relationer til borgerne.',
-    author: 'Rusmira',
-    role: 'Matchningskonsulent',
-  },
-  {
-    quote:
-      'Jeg oplevede personalet som en tryg og støttende enhed, der bidrog væsentligt til min udvikling og hjalp mig med at finde retningen i livet.',
-    author: 'Anonym',
-    role: 'Tidligere beboer i botilbud',
-  },
-  {
-    quote:
-      'Det, {brand} har gjort for mig, er livsændrende. De har hjulpet mig med at finde troen på mig selv, forstå mine følelser og opbygge sunde relationer.',
-    author: 'Anonym',
-    role: 'Beboer på børne- og ungehjem',
-  },
-  {
-    quote:
-      'Min tid på {brand} var en rigtig positiv oplevelse. Jeg mødte mange dejlige pædagoger, som altid var nærværende og klar til at støtte og hjælpe mig, når der var behov.',
-    author: 'Anonym',
-    role: 'Tidligere beboer',
-  },
-  {
-    quote:
-      'Vores søn har været anbragt hos {brand}, og vi har oplevet et meget professionelt og tillidsfuldt samarbejde med personalet. Vi har altid følt os velkomne og inddraget som forældre. Vores søn har gennemgået en stor og positiv udvikling i sin tid hos {brand}, og det er vi meget taknemmelige for.',
-    author: 'Forældre',
-    role: 'Til beboer på {brand}',
-  },
-  {
-    quote:
-      'Mit opholdssted er det bedste af alle – og det er der mange grunde til. Først og fremmest på grund af de fantastiske pædagoger. De er altid klar på at lave noget, både ude og inde, og de er sjove og nærværende. Uanset hvad tid på dagen det er, føles det som om, der altid er nogen der for én.',
-    author: 'David',
-    role: 'Beboer på {brand}',
-  },
-  {
-    quote:
-      'Hos {brand} bliver jeg altid mødt i øjenhøjde og med respekt. Rammerne er tydelige, og uanset hvad der sker, bliver man altid mødt med dialog og forståelse. Jeg føler, at {brand} i det seneste år har været med til at forberede mig på at blive 18 år – både praktisk og personligt.',
-    author: 'Elias',
-    role: 'Beboer på {brand}',
-  },
+export const values: CardContent[] = [
+  { title: 'Tryghed', text: 'Stabile relationer og genkendelige rammer skaber ro og giver plads til udvikling.' },
+  { title: 'Nærvær', text: 'Børnene og de unge mødes af tilgængelige voksne, som er engagerede i deres hverdag.' },
+  { title: 'Ordentlighed', text: 'Vi handler med respekt, faglig integritet og blik for det ansvar, vi har i barnets liv.' },
 ]
 
-export const PARTNERS = [
-  'Nordic Pas',
-  'Deltaplan',
-  'Aktiv',
-  'Falck',
-  'FindSocialeTilbud',
-  'Schantz Revision',
-  'LOL',
-] as const
+export const rhythms: CardContent[] = [
+  { title: 'Forudsigelig struktur', text: 'Genkendelige rytmer og tydelige aftaler.' },
+  { title: 'Meningsfulde fællesskaber', text: 'Relationer og aktiviteter med afsæt i den enkelte.' },
+  { title: 'Individuel udvikling', text: 'Konkrete mål, tæt opfølgning og blik for fremskridt.' },
+]
+
+export const methods: CardContent[] = [
+  { title: 'Mentalisering', text: 'Vi er nysgerrige på de tanker, følelser og intentioner, der kan ligge bag egne og andres handlinger. Det bruger vi aktivt i hverdagen – særligt når noget bliver svært.' },
+  { title: 'Jeg-støttende samtale', text: 'Barnet får støtte til at sætte ord på oplevelser, følelser, ressourcer og udfordringer. Samtalen kan opstå naturligt i hverdagen eller foregå i et mere fast rum.' },
+  { title: 'Stabile relationer', text: 'Udvikling sker gennem relationer. Barnet møder tilgængelige og tydelige voksne, der bliver ved med at være nysgerrige – også på svære dage.' },
+  { title: 'Individuel støtte', text: 'Vi forventer ikke, at alle børn kan det samme. Indsatsen tilpasses det enkelte barn og tager udgangspunkt i, hvor barnet befinder sig lige nu.' },
+]
+
+export const challenges = [
+  'Vanskeligheder med relationer og tilknytning',
+  'Udfordringer med følelsesregulering',
+  'Opmærksomheds- og koncentrationsvanskeligheder',
+  'Udfordringer med skole og læring',
+  'Indad- eller udadreagerende adfærd',
+]
+
+export const perspective = 'Vi ser ikke kun på adfærden. Vi er nysgerrige på, hvad der ligger bag, og hvad barnet har brug for fra de voksne omkring sig.'
+export const targetIntro = 'Stjernestøv er godkendt til børn og unge i alderen 7–17 år, som har været udsat for omsorgssvigt og/eller har udviklet en tilknytningsforstyrrelse.'
+export const everydayIntro = 'Vi understøtter skolegang, fritidsliv, sociale relationer og udviklingen af personlige og praktiske færdigheder. Der er plads til både fællesskab, ro og individuelle interesser.'
+export const approval = 'Stjernestøv er godkendt som børne- og ungehjem med fem pladser efter Barnets lov § 43, stk. 1, nr. 6 og stk. 3.'
+
+export const team = [
+  { image: 'member1.jpg', name: 'Navn', role: 'Titel' },
+  { image: 'member2.jpg', name: 'Navn', role: 'Titel' },
+  { image: 'member3.png', name: 'Navn', role: 'Titel' },
+  { image: 'member4.JPG', name: 'Navn', role: 'Titel' },
+  { image: 'member5.PNG', name: 'Navn', role: 'Titel' },
+]
+
+export const supportTopics: CardContent[] = [
+  { title: 'Uddannelse og arbejde', text: 'Vi støtter barnet/den unge i at komme godt i gang med og fastholde uddannelse eller arbejde – herunder struktur, planlægning og lektiehjælp.' },
+  { title: 'Økonomi og ansvar', text: 'Vi hjælper med at skabe overblik over økonomien, lægge budget, betale regninger og arbejde med opsparing og ansvarligt forbrug.' },
+  { title: 'Hverdagsliv og praktiske færdigheder', text: 'Vi støtter barnet/den unge i at skabe struktur og gode rutiner omkring de praktiske opgaver, der hører hverdagen til.' },
+  { title: 'Mad, sundhed og egenomsorg', text: 'Vi arbejder med kostbevidsthed, indkøb og madlavning samt med personlig hygiejne, kropsbevidsthed og trivsel.' },
+  { title: 'Fritid og interesser', text: 'Vi hjælper barnet/den unge med at finde aktiviteter, fællesskaber og interesser, der giver glæde og mening – eksempelvis sport og andre fritidsaktiviteter.' },
+  { title: 'Fællesskab og sociale relationer', text: 'Vi støtter barnet/den unge i at skabe og fastholde gode relationer, opbygge venskaber og være en aktiv del af fællesskabet. Vi har samtidig fokus på at forebygge ensomhed.' },
+  { title: 'Selvstændighed og medansvar', text: 'Vi arbejder med, at barnet/den unge bliver mere selvstændig og tager ansvar for eget liv, samtidig med at man bidrager til fællesskabet og de fælles opgaver.' },
+  { title: 'Oplevelser og udvikling', text: 'Vi skaber mulighed for ture, udflugter og rejser, hvor barnet/den unge kan få nye oplevelser, udfordre sig selv og udvikle nye færdigheder.' },
+  { title: 'Personlig udvikling og grænsesætning', text: 'Vi støtter barnet/den unge i at mærke egne behov, sige til og fra, sætte sunde grænser og have modet til at være den, man er.' },
+  { title: 'Livsmestring og samfund', text: 'Vi hjælper barnet/den unge med at forstå og navigere i det samfund, vi er en del af, og med at udvikle de kompetencer, der gør det muligt at leve et så selvstændigt og meningsfuldt liv som muligt.' },
+  { title: 'Samtaler og bearbejdning', text: 'Vi tilbyder et trygt rum til at tale om tanker, følelser og oplevelser og støtter beboeren i at finde gode strategier til at håndtere det, der kan være svært.' },
+]
