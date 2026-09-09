@@ -54,9 +54,9 @@ export const approval = 'Stjernestøv er godkendt som børne- og ungehjem med fe
 export const team = [
   { image: 'member1.jpg', name: 'Yakub Yigit Gökce', role: 'Tilbudsleder', education: 'Cand.Pæd.Pæd.Psyk', kind: 'employee' },
   { image: 'member2.jpg', name: 'Kathrine Lautrup Bentsen', role: 'Adm.', education: 'Cand.Pæd.Pæd.Psyk', kind: 'employee' },
-  { image: 'member3.png', name: 'Huso Habul', role: 'Bestyrelsesmedlem', education: '', kind: 'board' },
-  { image: 'member4.JPG', name: 'Kia Schack', role: 'Bestyrelsesformand', education: '', kind: 'board' },
-  { image: 'member5.PNG', name: 'Egzon Halilaj', role: 'Bestyrelsesmedlem', education: '', kind: 'board' },
+  { image: 'member3.png', name: 'Egzon Halilaj', role: 'Bestyrelsesmedlem', education: '', kind: 'board' },
+  { image: 'member4.JPG', name: 'Huso Habul', role: 'Bestyrelsesmedlem', education: '', kind: 'board' },
+  { image: 'member5.PNG', name: 'Kia Schack', role: 'Bestyrelsesformand', education: '', kind: 'board' },
 ]
 
 export const contactPeople = [
