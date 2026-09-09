@@ -1,5 +1,7 @@
 import { useEffect, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import type { CardContent } from '../content/site'
 
 export function Star({ className = '' }: { className?: string }) {
@@ -7,7 +9,7 @@ export function Star({ className = '' }: { className?: string }) {
 }
 
 export function Arrow() {
-  return <span aria-hidden="true" className="arrow">↗</span>
+  return <FontAwesomeIcon aria-hidden="true" focusable="false" className="arrow" icon={faArrowUpRightFromSquare} />
 }
 
 export function TextLink({ to, children }: { to: string; children: ReactNode }) {
