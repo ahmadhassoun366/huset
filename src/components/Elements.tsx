@@ -49,7 +49,7 @@ export function Seo({ title, description }: { title: string; description: string
       'og:type': 'website',
       'og:locale': 'da_DK',
       'og:site_name': 'Huset Stjernestøv',
-      'og:image': '/images/house1.jfif',
+      'og:image': '/images/p1.png',
       'og:image:alt': 'Huset Stjernestøvs rødstenshus i Forlev',
     }
     for (const [name, content] of Object.entries(values)) {
