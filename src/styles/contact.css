@@ -11,9 +11,6 @@
 .contact-hero-mark { color: #d8c5a5; font-size: 54px; line-height: 1; }
 .contact-hero-stats { display: flex; flex-wrap: wrap; gap: 8px; }
 .contact-hero-stats span { border: 1px solid rgba(248,246,239,.28); border-radius: 99px; padding: 5px 11px; color: var(--cream); font-size: .66rem; }
-.contact-intro { background: var(--paper); border-bottom: 1px solid var(--line); }
-.contact-intro h1 { max-width: 760px; color: var(--ink); }
-.contact-intro::after { content: '✦'; position: absolute; right: 8%; bottom: -46px; color: #deddd2; font-size: 180px; line-height: 1; }
 .contact-section { padding-block: 88px 92px; }
 .contact-people-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 42px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
 .contact-people-heading .eyebrow { margin: 0; }
@@ -39,7 +36,7 @@
 .contact-map { padding-top: 86px; }
 .contact-map-frame { position: relative; width: min(1248px, calc(100% - 112px)); height: 480px; margin-inline: auto; overflow: hidden; border: 1px solid var(--line); }
 .contact-map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.contact-map-card { position: absolute; top: 24px; right: 24px; max-width: 300px; padding: 23px 25px; background: var(--cream); border: 1px solid var(--line); box-shadow: 0 12px 27px rgba(20,20,15,.13); }
+.contact-map-card { position: absolute; top: 24px; left: auto !important; right: 24px !important; max-width: 300px; padding: 23px 25px; background: var(--cream); border: 1px solid var(--line); box-shadow: 0 12px 27px rgba(20,20,15,.13); }
 .contact-map-card h2 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 1.1rem; }
 .contact-map-card h2 svg { color: var(--brick); }
 .contact-map-card p { margin: 0 0 13px; color: var(--ink); font-size: .86rem; }
@@ -56,5 +53,7 @@
   .contact-people-grid { grid-template-columns: minmax(0, 360px); gap: 22px; }
   .contact-map { padding-top: 58px; }
   .contact-map-frame { width: calc(100% - 44px); height: 360px; }
-  .contact-map-card { top: 15px; left: 15px; right: 15px; max-width: none; padding: 17px 19px; }
+  .contact-map-card { top: 15px; left: 15px !important; right: 15px !important; max-width: none; padding: 17px 19px; }
 }
+.contact-person-education { margin: -10px 0 18px; color: var(--muted); font-size: .76rem; }
+.contact-page .contact-map-card { left: auto !important; right: 24px !important; }

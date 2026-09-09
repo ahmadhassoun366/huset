@@ -2,7 +2,7 @@ import { NumberedCards, PageIntro, Seo } from '../components/Elements'
 import { team, values } from '../content/site'
 
 export default function AboutPage() {
-  const board = team.filter(member => member.kind === 'board')
+  const board = [team[2], team[4], team[3]]
   const employees = team.filter(member => member.kind === 'employee')
   const renderTeamCard = (member: typeof team[number]) => <article className={`team-card ${member.kind === 'board' ? 'team-card-board' : ''}`} key={member.image}>
     <img src={`/images/${member.image}`} alt={`Portræt af ${member.name}`} loading="lazy" width="480" height="600" />
