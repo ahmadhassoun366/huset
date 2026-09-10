@@ -60,8 +60,8 @@ test('Mobile navigation supports keyboard, Escape, route changes and back', asyn
 test('Contact shows both contact persons and their real details', async ({ page }) => {
   await page.goto('/kontakt')
   await expect(page.getByRole('link', { name: 'Ring til os' })).toHaveAttribute('href', 'tel:+4560223347')
-  await expect(page.getByRole('link', { name: 'yg@husetstjernestøv.dk' })).toHaveAttribute('href', 'mailto:yg@husetstjernestøv.dk')
-  await expect(page.getByRole('link', { name: 'kb@husetstjernestøv.dk' })).toHaveAttribute('href', 'mailto:kb@husetstjernestøv.dk')
+  await expect(page.getByRole('link', { name: 'yg@husetstjernestov.dk' })).toHaveAttribute('href', 'mailto:yg@husetstjernestov.dk')
+  await expect(page.getByRole('link', { name: 'kb@husetstjernestov.dk' })).toHaveAttribute('href', 'mailto:kb@husetstjernestov.dk')
   await expect(page.getByRole('link', { name: '+45 93 98 27 70' })).toHaveAttribute('href', 'tel:+4593982770')
   await expect(page.locator('iframe')).toHaveAttribute('src', /L%C3%A5sbyvej\+61/)
 })

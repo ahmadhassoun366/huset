@@ -4,7 +4,7 @@ export const site = {
   phoneHref: 'tel:+4560223347',
   address: 'Låsbyvej 61, Forlev, 8660 Skanderborg',
   cvr: '45975843',
-  email: '', // Indsæt den bekræftede arbejdsmail her.
+  email: 'info@husetstjernestov.dk', // Indsæt den bekræftede arbejdsmail her.
   mapUrl: 'https://www.google.com/maps?q=L%C3%A5sbyvej+61,+Forlev,+8660+Skanderborg',
 }
 
@@ -61,8 +61,8 @@ export const team = [
 ]
 
 export const contactPeople = [
-  { name: 'Yakub Yigit Gökce', role: 'Tilbudsleder', education: 'Cand.Pæd.Pæd.Psyk', phone: '+45 60 22 33 47', phoneHref: 'tel:+4560223347', email: 'yg@husetstjernestøv.dk', image: 'member1.jpg' },
-  { name: 'Kathrine Lautrup Bentsen', role: 'Adm.', education: 'Cand.Pæd.Pæd.Psyk', phone: '+45 93 98 27 70', phoneHref: 'tel:+4593982770', email: 'kb@husetstjernestøv.dk', image: 'member2.jpg' },
+  { name: 'Yakub Yigit Gökce', role: 'Tilbudsleder', education: 'Cand.Pæd.Pæd.Psyk', phone: '+45 60 22 33 47', phoneHref: 'tel:+4560223347', email: 'yg@husetstjernestov.dk', image: 'member1.jpg' },
+  { name: 'Kathrine Lautrup Bentsen', role: 'Adm.', education: 'Cand.Pæd.Pæd.Psyk', phone: '+45 93 98 27 70', phoneHref: 'tel:+4593982770', email: 'kb@husetstjernestov.dk', image: 'member2.jpg' },
 ]
 
 export const supportTopics: CardContent[] = [
