@@ -8,15 +8,13 @@ export default function ApproachPage() {
     <PageIntro label="Faglig tilgang" title="Faglig tilgang" />
     <div className="container page-body">
       <section className="methods-intro"><h2>Udvikling begynder i relationen</h2><MethodCards items={methods} /></section>
-      <nav className="contents-nav" aria-label="På denne side"><span>På denne side</span>{approachSections.map((section, index) => <a href={`#metode-${index + 1}`} key={section.title}>{section.title}</a>)}<a href="#anerkendelse">Anerkendende tilgang</a></nav>
+      <nav className="contents-nav" aria-label="På denne side"><span>På denne side</span>{approachSections.map((section, index) => <a href={`#metode-${index + 1}`} key={section.title}>{section.title}</a>)}<a href="#inklusion">Inklusionspædagogik</a></nav>
       {approachSections.map((section, index) => <section className="reading-section" id={`metode-${index + 1}`} key={section.title}><h2>{section.title}</h2><div className="prose">{section.paragraphs.map(text => <p key={text}>{text}</p>)}</div></section>)}
-      <section className="reading-section" id="anerkendelse"><h2>Anerkendende tilgang</h2><div className="prose">
-        <p>Når du samarbejder med Huset Stjernestøv, møder du en personalegruppe, der arbejder målrettet med en anerkendende pædagogisk tilgang. Vores faglige praksis sikrer et trygt miljø med fokus på det enkelte barns trivsel, udvikling og personlige ressourcer. I hverdagen med de børn og unge, du anbringer hos os, betyder det:</p>
-        <p><strong>Fokus på succeser og mestring:</strong> Vi leder altid efter det, der lykkes for barnet. Ved systematisk at bygge videre på barnets/den unges små og store succeser, styrker vi deres modstandsdygtighed og handlekraft over for livets svære udfordringer.</p>
-        <p><strong>Nervesystem i ro skaber udvikling:</strong> Vi arbejder bevidst med at skabe en hverdag, der dæmper stress og beroliger et overstimuleret nervesystem. Det er denne dybe tryghed, der skal til, for at barnet/den unge kan genvinde overskud, trives og lære.</p>
-        <p><strong>Adfærd som meningsfuld kommunikation:</strong> Vi ser altid bag om barnets/den unges umiddelbare adfærd. Vi møder barnet med nysgerrighed frem for dom, fordi vi ved, at svære reaktioner ofte er en mestringsstrategi i en svær situation.</p>
-        <p><strong>Dyb værdsættelse frem for tom ros:</strong> Vores pædagoger praktiserer en dyb, relationel anerkendelse. Vi styrker barnets/den unges fundamentale selvværd ved at møde dem med ægte nærvær og vise dem, at de har en stor værdi præcis, som de er.</p>
-        <p>Vores mål er at skabe et trygt og forudsigeligt miljø, hvor barnet kan genfinde troen på egne ressourcer og udvikle sig i et sundt fællesskab.</p>
+      <section className="reading-section" id="inklusion"><h2>Inklusionspædagogik</h2><div className="prose">
+        <p>I Huset Stjernestøv arbejder vi ud fra et inklusionspædagogisk perspektiv, hvor alle børn og unge skal opleve sig som betydningsfulde deltagere i fællesskabet. Vi tager udgangspunkt i det enkelte barns forudsætninger, behov og ressourcer og tilpasser de pædagogiske rammer, så barnet får mulighed for at deltage, udvikle sig og opleve tilhørsforhold.</p>
+        <p>Vi har fokus på at identificere og reducere de forhold, der kan skabe barrierer for barnets deltagelse. Det kan eksempelvis være krav, struktur, kommunikationsformer, sociale samspil eller fysiske rammer. Personalet arbejder derfor fleksibelt med at justere hverdagen og skabe overskuelige og tilgængelige fællesskaber, hvor det enkelte barn kan deltage på egne forudsætninger.</p>
+        <p>Inklusion forstås således ikke alene som barnets evne til at indgå i fællesskabet, men som et fælles pædagogisk ansvar for at skabe rammer, hvor forskellighed kan rummes, og hvor alle børn og unge får mulighed for at bidrage og opleve sig som en del af fællesskabet.</p>
+        <p>Gennem tæt relationsarbejde, tydelig struktur og løbende faglig refleksion understøtter vi barnets sociale deltagelse, medbestemmelse og oplevelse af tilhørsforhold. Vi samarbejder samtidig med barnets netværk og relevante samarbejdspartnere for at skabe sammenhæng og kontinuitet omkring barnets udvikling og deltagelsesmuligheder.</p>
       </div></section>
     </div>
   </>
