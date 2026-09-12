@@ -1,119 +1,82 @@
-# Website
+# Huset Stjernestøv
 
-React 19 + TypeScript + Vite. Danish-language marketing site for a børne- og ungehjem / botilbud organisation.
+Danish website built with React 19, TypeScript, Vite and React Router.
+Official production domain: https://husetstjernestov.dk.
 
-```bash
-npm install
-npm run dev      # local dev server
-npm run build    # type-check + production build to /dist
-npm run preview  # preview the production build
+## Development and validation
+
+```sh
+npm ci
+npm run dev
+npm test          # rendered-page SEO and content checks
 npm run lint
+npm run build    # TypeScript check, Vite build and static prerendering
+npm run test:e2e # Chrome: routes, hydration, navigation, images and SEO
+npm run preview
 ```
 
----
+The browser suite requires Google Chrome and starts Vite preview on port 4173.
+Run the build before browser tests. robots.txt and sitemap.xml are build outputs
+available through preview and production, not the Vite development server.
 
-## The three things that change later
+## Pages and deployment
 
-Everything the client still needs to decide is isolated to one file each. You do
-not need to touch components to change any of them.
+Public routes are `/`, `/om-os`, `/malgruppe`, `/faglig-tilgang`, `/hverdagen`,
+`/for-kommuner` and `/kontakt`. Navigation is defined in `src/content/site.ts`;
+route components are registered in `src/App.tsx`.
 
-### 1. Company name → `src/content/site.ts`
+`scripts/prerender.mjs` writes complete HTML for each public page, plus `404.html`,
+`robots.txt` and `sitemap.xml`, into `dist`. Page files use the form `om-os.html`.
+Vercel's `cleanUrls: true` serves these as `/om-os` and redirects `.html` variants;
+`trailingSlash: false` removes trailing slashes. Keep the root URL ending in `/`.
+Do not add a catch-all rewrite to the homepage: it would replace route-specific
+HTML and real 404 responses. Unknown pages are marked `noindex` and excluded from
+the sitemap. No backend contact form is present; contact uses phone/email links.
 
-The name is a placeholder (`Navnet`). It appears in the header, footer, page
-titles, body copy and testimonial quotes — all of it reads from `BRAND`:
+The `www.husetstjernestov.dk` redirect preserves paths and sends visitors to the
+canonical HTTPS domain. It takes effect for traffic reaching this Vercel project;
+DNS and domain assignments remain managed in Vercel. Preview deployment hosts
+remain usable and their page metadata points to the official production domain.
 
-```ts
-export const BRAND = {
-  name: 'Navnet',                          // ← the display name
-  legalName: 'Administrationen Navnet ApS', // ← legal entity in the footer
-  domain: 'navnet.dk',                      // ← shown in the copyright line
-  tagline: 'Din nye fortælling starter hos Stjernestøv – sammen skaber vi den.',
-}
-```
+## SEO maintenance
 
-Change those four strings and the whole site updates. Contact details live in
-the same file under `CONTACT` (phone, email, address, CVR, døgntelefon,
-LinkedIn) and are also placeholders where the real ones aren't known.
+- Company identity, canonical origin, address, telephone and verified profile
+  URLs live in `src/content/site.ts`. Existing website facts were reused without
+  external verification. The general email retains its existing confirmation note.
+- Each page supplies its Danish title and description to `Seo` in
+  `src/components/Elements.tsx`. React manages the same metadata for static HTML
+  and client navigation, including canonical, Open Graph and Twitter cards.
+- Organization and WebSite JSON-LD use existing company details. `sameAs` is
+  omitted until verified official profile URLs are added to `site.sameAs`.
+- Social cards use the existing `/images/logo.png` with an absolute production
+  URL. The header logo and `/favicon.svg` retain stable root-relative references.
+- The homepage H1 is the company name; the existing slogan remains in visible copy.
+- The sitemap is generated from the public navigation list. Update navigation,
+  route registration and tests together when adding a page. No fabricated
+  modification dates, search actions, ratings or profile links are published.
+- Localhost URLs in browser-test configuration are intentional. No old production
+  domain references were found in the application source during the SEO audit.
 
-Copy that mentions the company by name uses a `{brand}` placeholder and is
-rendered through the `brand()` helper in `src/lib/brand.ts` — that's why
-testimonial quotes re-brand themselves automatically. If you add copy that
-names the company, write `{brand}` and render it with `brand(...)`.
+## External follow-up after deployment
 
-### 2. Colours → `src/styles/tokens.css`
+1. Verify the domain property in Google Search Console, submit
+   `https://husetstjernestov.dk/sitemap.xml`, and inspect/request indexing of the
+   homepage and key pages. Check Google's selected canonical and rendered HTML.
+2. Check live HTTP-to-HTTPS, www-to-apex, trailing-slash and `.html` redirects,
+   status codes, crawler files and the custom 404. These cannot be proven by
+   Vite preview. Keep old domains redirected only if owned and configured;
+   do not alter email domains or unrelated external links.
+3. Validate the deployed JSON-LD with Schema Markup Validator and Google's Rich
+   Results Test. Organization details must stay aligned with visible company facts.
+4. Confirm Google Business Profile eligibility and maintain matching company name,
+   address, telephone and official website. Add verified profile URLs to `sameAs`.
+5. Seek accurate listings and editorial links from relevant partners and directories.
+   Avoid purchased link schemes and fabricated listings.
 
-Every colour on the site derives from eight values at the top of that file:
+These changes improve technical clarity and discoverability; they cannot guarantee
+a particular Google ranking.
 
-```css
---brand-ink        /* darkest — headlines, footer background */
---brand-deep       /* deep brand colour — dark sections       */
---brand-mid        /* mid tone — buttons, links               */
---brand-soft       /* muted — borders, accents                */
---brand-tint       /* pale wash — section backgrounds         */
---brand-cream      /* page background                         */
---brand-accent     /* warm accent — eyebrows, highlights      */
---brand-accent-soft
-```
-
-Edit those and the site re-themes. No component hard-codes a colour. The same
-file also holds the type scale, spacing scale, radii, shadows and motion
-timings if the design needs tuning.
-
-### 3. Photography → `src/lib/images.ts`
-
-All images are temporary stock photos, referenced by key:
-
-```ts
-hero: { src: '…unsplash…', alt: 'Solbeskinnet stue med …' }
-```
-
-To swap in real photography, drop files into `public/images/` and change the
-`src` to `/images/your-file.jpg`. Keep the `alt` text meaningful and in Danish —
-it's what screen readers announce.
-
----
-
-## Fonts
-
-**Fraunces** (serif) for display/headings, **Plus Jakarta Sans** for body text,
-loaded from Google Fonts in `index.html` and exposed as `--font-display` /
-`--font-body`. To change typeface, swap the `<link>` and those two variables.
-
----
-
-## Structure
-
-```
-src/
-  content/site.ts       BRAND, CONTACT, NAV, DEPARTMENTS, TESTIMONIALS — single source of truth
-  content/departments.ts  per-department detail copy
-  lib/images.ts         all image URLs + alt text
-  lib/brand.ts          {brand} placeholder interpolation
-  styles/tokens.css     design tokens — colours live here
-  styles/base.css       reset + shared layout/typography classes
-  components/layout/    Header, Footer, Logo, Layout (shell + routing chrome)
-  components/ui/        Button, Reveal, SectionHeading, PageHero
-  components/…/         page-specific section components
-  pages/                one file per route
-  App.tsx               route table
-```
-
-Routes mirror the original site's navigation: `/`, `/kommuner` (+ `/paedagogik`,
-`/maalgruppe`), `/hvem-er-vi` (+ `/vaerdier`, `/bestyrelsen`), `/afdelinger`
-(+ `/:slug` for each of the five departments), `/fortaellinger`, `/tilsyn`,
-`/kontakt-os`, `/barnets-lov`.
-
-## Known placeholders
-
-- Company name, domain and email — see `BRAND` above.
-- All photography — stock, see `src/lib/images.ts`.
-- Logo — a wordmark built from `BRAND.name` in `src/components/layout/Logo.tsx`.
-  Swap the inner markup for an `<img>` when the real logo exists.
-- The contact form has no backend; the submit handler is marked with a `TODO`.
-- Board members and inspection-report links are labelled placeholders.
-
-## Deployment note
-
-This is a client-side router. Any host must rewrite all paths to `/index.html`,
-or deep links like `/afdelinger/overgaardsvej` will 404 on refresh.
-"# huset" 
+References: [Google canonical guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls),
+[Organization data](https://developers.google.com/search/docs/appearance/structured-data/organization),
+[site names](https://developers.google.com/search/docs/appearance/site-names), and
+[Vercel configuration](https://vercel.com/docs/project-configuration/vercel-json).

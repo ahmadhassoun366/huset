@@ -29,7 +29,7 @@
 .contact-line:hover { color: var(--brick); }
 .contact-facts { padding-block: 31px; background: var(--sage); border-block: 1px solid var(--line); }
 .contact-facts-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 64px; text-align: center; }
-.contact-facts-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.contact-facts-item { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
 .contact-facts-item dt { color: var(--brick); font-size: .64rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
 .contact-facts-item dd { margin: 0; font-size: .9rem; }
 .contact-facts-name { flex-direction: row; gap: 9px; font-size: 1rem; font-weight: 600; }

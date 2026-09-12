@@ -4,7 +4,7 @@ import { navigation, site } from '../content/site'
 import { Arrow, Star } from './Elements'
 
 export function Logo() {
-  return <Link className="logo" to="/" aria-label="Huset Stjernestøv – til forsiden"><img src="/images/logo.png" alt="Huset Stjernestøv" width="2048" height="768" /></Link>
+  return <Link className="logo" to="/" aria-label="Huset Stjernestøv – til forsiden"><img src={site.logo} alt={site.name} width="2172" height="724" /></Link>
 }
 
 export function Header() {

@@ -11,7 +11,7 @@ import MunicipalityPage from './pages/MunicipalityPage'
 import ContactPage from './pages/ContactPage'
 
 function NotFoundPage() {
-  return <><Seo title="Siden blev ikke fundet" description="Siden findes ikke. Find tilbage til Huset Stjernestøvs forside." /><meta name="robots" content="noindex" /><PageIntro label="404" title="Siden blev ikke fundet"><TextLink to="/">Tilbage til forsiden</TextLink></PageIntro></>
+  return <><Seo title="Siden blev ikke fundet" description="Siden findes ikke. Find tilbage til Huset Stjernestøvs forside." /><PageIntro label="404" title="Siden blev ikke fundet"><TextLink to="/">Tilbage til forsiden</TextLink></PageIntro></>
 }
 
 export default function App() {
