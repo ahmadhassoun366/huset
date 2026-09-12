@@ -1,14 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.husetstjernestov.dk" }],
-      "destination": "https://husetstjernestov.dk/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [{ "source": "/images/(.*)\\.jfif", "headers": [{ "key": "Content-Type", "value": "image/jpeg" }] }]
 }

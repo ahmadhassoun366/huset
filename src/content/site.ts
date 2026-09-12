@@ -1,16 +1,5 @@
 export const site = {
   name: 'Huset Stjernestøv',
-  url: 'https://husetstjernestov.dk',
-  logo: '/images/logo.png',
-  description: 'Huset Stjernestøv er et børne- og ungehjem i Forlev ved Skanderborg med fem pladser til børn og unge på 7–17 år. Trygge rammer, nærvær og individuel støtte.',
-  postalAddress: {
-    streetAddress: 'Låsbyvej 61, Forlev',
-    postalCode: '8660',
-    addressLocality: 'Skanderborg',
-    addressCountry: 'DK',
-  },
-  // Add only verified official company profile URLs; empty until confirmed.
-  sameAs: [] as string[],
   phone: '+45 60 22 33 47',
   phoneHref: 'tel:+4560223347',
   address: 'Låsbyvej 61, Forlev, 8660 Skanderborg',

@@ -1,33 +1,8 @@
-import { type ReactNode } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useEffect, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { navigation, site, type CardContent } from '../content/site'
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Organization',
-      '@id': `${site.url}/#organization`,
-      name: site.name,
-      url: site.url,
-      logo: `${site.url}${site.logo}`,
-      description: site.description,
-      address: { '@type': 'PostalAddress', ...site.postalAddress },
-      telephone: site.phone,
-      ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
-    },
-    {
-      '@type': 'WebSite',
-      '@id': `${site.url}/#website`,
-      name: site.name,
-      url: site.url,
-      inLanguage: 'da',
-      publisher: { '@id': `${site.url}/#organization` },
-    },
-  ],
-}
+import type { CardContent } from '../content/site'
 
 export function Star({ className = '' }: { className?: string }) {
   return <span aria-hidden="true" className={`star ${className}`}>✦</span>
@@ -66,34 +41,36 @@ export function PageIntro({ label, title, children, className = '' }: { label: s
 }
 
 export function Seo({ title, description }: { title: string; description: string }) {
-  const { pathname } = useLocation()
-  const path = pathname.replace(/\/+$/, '').toLowerCase() || '/'
-  const isPublicPage = navigation.some(item => item.path === path)
-  const fullTitle = path === '/' ? `${site.name} | ${title}` : `${title} | ${site.name}`
-  const canonical = `${site.url}${path}`
-  const image = `${site.url}${site.logo}`
-  // React 19 places these tags in <head> during both prerendering and navigation.
+  const fullTitle = `${title} | Huset Stjernestøv`
+  useEffect(() => {
+    document.title = fullTitle
+    const values: Record<string, string> = {
+      description,
+      'og:title': fullTitle,
+      'og:description': description,
+      'og:type': 'website',
+      'og:locale': 'da_DK',
+      'og:site_name': 'Huset Stjernestøv',
+      'og:image': '/images/p1.png',
+      'og:image:alt': 'Huset Stjernestøvs rødstenshus i Forlev',
+    }
+    for (const [name, content] of Object.entries(values)) {
+      const selector = name.startsWith('og:') ? `meta[property="${name}"]` : `meta[name="${name}"]`
+      const meta = document.head.querySelector<HTMLMetaElement>(selector) ?? document.head.appendChild(document.createElement('meta'))
+      meta.setAttribute(name.startsWith('og:') ? 'property' : 'name', name)
+      meta.content = content
+    }
+  }, [description, fullTitle])
+  if (typeof window !== 'undefined') return null
   return <>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content={isPublicPage ? 'index, follow' : 'noindex, follow'} />
-    {isPublicPage ? <link rel="canonical" href={canonical} /> : null}
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    {isPublicPage ? <meta property="og:url" content={canonical} /> : null}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="da_DK" />
-    <meta property="og:site_name" content={site.name} />
-    <meta property="og:image" content={image} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="2172" />
-    <meta property="og:image:height" content="724" />
-    <meta property="og:image:alt" content="Huset Stjernestøvs logo" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={fullTitle} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
-    <meta name="twitter:image:alt" content="Huset Stjernestøvs logo" />
-    {isPublicPage ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }} /> : null}
+    <meta property="og:site_name" content="Huset Stjernestøv" />
+    <meta property="og:image" content="/images/house1.jfif" />
+    <meta property="og:image:alt" content="Huset Stjernestøvs rødstenshus i Forlev" />
   </>
 }
