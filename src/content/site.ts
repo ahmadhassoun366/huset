@@ -4,7 +4,7 @@ export const site = {
   phoneHref: 'tel:+4560223347',
   address: 'Låsbyvej 61, Forlev, 8660 Skanderborg',
   cvr: '45975843',
-  email: 'info@husetstjernestov.dk', // Indsæt den bekræftede arbejdsmail her.
+  email: 'info@husetstjernestov.dk',
   mapUrl: 'https://www.google.com/maps?q=L%C3%A5sbyvej+61,+Forlev,+8660+Skanderborg',
 }
 
