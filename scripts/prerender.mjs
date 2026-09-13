@@ -15,7 +15,10 @@ try {
     let markup = renderToString(createElement(StaticRouter, { location: path }, createElement(App)))
     const head = []
     markup = markup.replace(/<title>[\s\S]*?<\/title>|<meta\b[^>]*\/>|<link\b[^>]*\/>/g, tag => { head.push(tag); return '' })
-    const document = template.replace('<!--app-head-->', head.join('\n    ')).replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
+    const document = template
+      .replace(/\s*<!--default-seo-start-->[\s\S]*?<!--default-seo-end-->/, '')
+      .replace('<!--app-head-->', head.join('\n    '))
+      .replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
     const destination = path === '/404' ? resolve('dist/404.html') : resolve('dist', `.${path}`, 'index.html')
     await mkdir(resolve(destination, '..'), { recursive: true })
     await writeFile(destination, document)

@@ -1,5 +1,5 @@
 import { useEffect, type ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import type { CardContent } from '../content/site'
@@ -41,7 +41,9 @@ export function PageIntro({ label, title, children, className = '' }: { label: s
 }
 
 export function Seo({ title, description }: { title: string; description: string }) {
+  const { pathname } = useLocation()
   const fullTitle = `${title} | Huset Stjernestøv`
+  const canonicalUrl = `https://www.husetstjernestov.dk${pathname === '/' ? '/' : pathname}`
   useEffect(() => {
     document.title = fullTitle
     const values: Record<string, string> = {
@@ -51,8 +53,9 @@ export function Seo({ title, description }: { title: string; description: string
       'og:type': 'website',
       'og:locale': 'da_DK',
       'og:site_name': 'Huset Stjernestøv',
-      'og:image': '/images/p1.png',
+      'og:image': 'https://www.husetstjernestov.dk/images/p1.png',
       'og:image:alt': 'Huset Stjernestøvs rødstenshus i Forlev',
+      'og:url': canonicalUrl,
     }
     for (const [name, content] of Object.entries(values)) {
       const selector = name.startsWith('og:') ? `meta[property="${name}"]` : `meta[name="${name}"]`
@@ -60,17 +63,22 @@ export function Seo({ title, description }: { title: string; description: string
       meta.setAttribute(name.startsWith('og:') ? 'property' : 'name', name)
       meta.content = content
     }
-  }, [description, fullTitle])
+    const canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]') ?? document.head.appendChild(document.createElement('link'))
+    canonical.rel = 'canonical'
+    canonical.href = canonicalUrl
+  }, [canonicalUrl, description, fullTitle])
   if (typeof window !== 'undefined') return null
   return <>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="da_DK" />
     <meta property="og:site_name" content="Huset Stjernestøv" />
-    <meta property="og:image" content="/images/house1.jfif" />
+    <meta property="og:image" content="https://www.husetstjernestov.dk/images/p1.png" />
     <meta property="og:image:alt" content="Huset Stjernestøvs rødstenshus i Forlev" />
+    <meta property="og:url" content={canonicalUrl} />
   </>
 }
